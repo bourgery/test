@@ -33,7 +33,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // routes
 var appRoutes = [
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__login_component__["a" /* LoginComponent */] },
-    { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+    { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
@@ -113,6 +113,9 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng_lightning_ng_lightning__ = __webpack_require__("../../../../ng-lightning/ng-lightning.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng2_dragula_ng2_dragula__ = __webpack_require__("../../../../ng2-dragula/ng2-dragula.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng2_dragula_ng2_dragula___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_ng2_dragula_ng2_dragula__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angular2_cookie_services_cookies_service__ = __webpack_require__("../../../../angular2-cookie/services/cookies.service.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_angular2_cookie_services_cookies_service___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_angular2_cookie_services_cookies_service__);
 /* unused harmony export firebaseConfig */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -121,6 +124,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -158,6 +163,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_16__angular_http__["a" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_8__dashboard_dashboard_module__["a" /* DashboardModule */],
             __WEBPACK_IMPORTED_MODULE_9_ng2_charts_ng2_charts__["ChartsModule"],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
@@ -173,7 +179,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_14_ng_lightning_ng_lightning__["a" /* NglModule */],
             __WEBPACK_IMPORTED_MODULE_15_ng2_dragula_ng2_dragula__["DragulaModule"]
         ],
-        providers: [],
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_17_angular2_cookie_services_cookies_service__["CookieService"]
+        ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -209,12 +217,15 @@ var AuthGuard = (function () {
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         var url = state.url;
+        console.log("canActivate");
         return this.checkLogin(url);
     };
     AuthGuard.prototype.checkLogin = function (url) {
         if (this.authService.isLoggedIn) {
+            console.log("ok");
             return true;
         }
+        console.log("ko");
         this.authService.redirectUrl = url;
         this.router.navigate(['/login']);
         return false;
@@ -236,8 +247,8 @@ var _a, _b;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__ = __webpack_require__("../../../../angular2-cookie/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -245,25 +256,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var AuthService = (function () {
-    function AuthService() {
-        this.isLoggedIn = true;
+    function AuthService(cookieService) {
+        this.cookieService = cookieService;
+        this.isLoggedIn = false;
+        this.isLoggedIn = this.cookieService.get("login") == "true";
     }
-    AuthService.prototype.login = function () {
-        var _this = this;
-        return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].of(true).delay(1000).do(function (val) { return _this.isLoggedIn = true; });
-    };
     AuthService.prototype.logout = function () {
         this.isLoggedIn = false;
     };
     return AuthService;
 }());
 AuthService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"]) === "function" && _a || Object])
 ], AuthService);
 
+var _a;
 //# sourceMappingURL=auth.service.js.map
 
 /***/ }),
@@ -894,8 +908,10 @@ var DashboardComponent = (function () {
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
+        console.log("init");
         this.projects = [];
         this.database.list('/global-stats/global').subscribe(function (data) {
+            console.log(data);
             data.forEach(function (item) {
                 if (item.$key == "patientCount") {
                     _this.globalProject.patientCount = item.$value;
@@ -906,7 +922,9 @@ var DashboardComponent = (function () {
             });
             _this.globalProject.name = "Global";
         });
+        console.log("ok1");
         this.database.list('/global-stats/projects').subscribe(function (data) {
+            console.log(data);
             data.forEach(function (item) {
                 if (item.projectName !== undefined)
                     _this.cpyInformation(item);
@@ -1025,7 +1043,7 @@ DashboardModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_20__change_config_admin_change_config_admin_component__["a" /* ChangeConfigAdminComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
             __WEBPACK_IMPORTED_MODULE_7__dashboard_routing__["a" /* DashboardRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_3_ng2_charts_ng2_charts__["ChartsModule"],
             __WEBPACK_IMPORTED_MODULE_14__agm_core__["a" /* AgmCoreModule */],
@@ -1267,8 +1285,12 @@ module.exports = "<div class=\"background\">\n  <h1 class=\"title\">Customized D
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_cookie_core__ = __webpack_require__("../../../../angular2-cookie/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angular2_cookie_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_angular2_cookie_core__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase_app__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1283,28 +1305,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var LoginComponent = (function () {
-    function LoginComponent(afAuth, router) {
+    //token: string = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJjOWM5YzQwYi04NDQ0LTQyZTEtOWMxOS02ZmM0OGNkNTMwOWIiLCJpYXQiOjE0OTg2NDIzODksImV4cCI6MTQ5ODY0NTk4OSwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay12NGJhMUBzaW1wcmludHMtZGV2LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiZmlyZWJhc2UtYWRtaW5zZGstdjRiYTFAc2ltcHJpbnRzLWRldi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSJ9.X05gPed4prEdfx-U2FPr7hSJlwWyareiQ8QPUBbZxZgp7IG1kpVGn6Z5uP1QqrNXCVSYmxtw4PkUuPn5cDjxWhpdf8Ht6hMlwScsoTG1ZkhKNMLAYGBuHbDtspUWLaDaXGlCj8AVXwBzZ41K-vHaDf2vNfT6kLkI2KfoBHDnzFOfuU2LOZ2qE2kSPWiOCSLyzoB_IIqBCaLMcgq-ae3fdfK4VjErkqkTGhkvvqyllAEP4T98V_uRujqNXEPqqe8IGZr1Oo-aU_Y6P_6yWdppOLs5w21TXr-3HDUnWiIW9omOYp72xdEOSnMS8hl68R5iesIJvgVA2q-k69Eh5Ffhwg";
+    function LoginComponent(authService, afAuth, router, http, cookieService) {
+        this.authService = authService;
         this.afAuth = afAuth;
         this.router = router;
-        this.token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJjOWM5YzQwYi04NDQ0LTQyZTEtOWMxOS02ZmM0OGNkNTMwOWIiLCJpYXQiOjE0OTg2NDIzODksImV4cCI6MTQ5ODY0NTk4OSwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJpc3MiOiJmaXJlYmFzZS1hZG1pbnNkay12NGJhMUBzaW1wcmludHMtZGV2LmlhbS5nc2VydmljZWFjY291bnQuY29tIiwic3ViIjoiZmlyZWJhc2UtYWRtaW5zZGstdjRiYTFAc2ltcHJpbnRzLWRldi5pYW0uZ3NlcnZpY2VhY2NvdW50LmNvbSJ9.X05gPed4prEdfx-U2FPr7hSJlwWyareiQ8QPUBbZxZgp7IG1kpVGn6Z5uP1QqrNXCVSYmxtw4PkUuPn5cDjxWhpdf8Ht6hMlwScsoTG1ZkhKNMLAYGBuHbDtspUWLaDaXGlCj8AVXwBzZ41K-vHaDf2vNfT6kLkI2KfoBHDnzFOfuU2LOZ2qE2kSPWiOCSLyzoB_IIqBCaLMcgq-ae3fdfK4VjErkqkTGhkvvqyllAEP4T98V_uRujqNXEPqqe8IGZr1Oo-aU_Y6P_6yWdppOLs5w21TXr-3HDUnWiIW9omOYp72xdEOSnMS8hl68R5iesIJvgVA2q-k69Eh5Ffhwg";
+        this.http = http;
+        this.cookieService = cookieService;
+        this.url = "https://simprints-dev.appspot.com/key";
+        this.apiKey = "708ba617e56449ec8163e820c390a91d0046c5f9dd344ae7ac9fbb9b0ae80d8c";
     }
     LoginComponent.prototype.login = function () {
         var _this = this;
-        this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_3_firebase_app__["auth"].GoogleAuthProvider()).then(function (data) { return _this.checkUser(); });
+        console.log(this.cookieService.get("login"));
+        this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_6_firebase_app__["auth"].GoogleAuthProvider()).then(function (data) { return _this.checkUser(); });
     };
     LoginComponent.prototype.checkUser = function () {
-        var _this = this;
         if (this.authorizeUser()) {
-            this.afAuth.auth.signInWithCustomToken(this.token).then(function (data) { return _this.router.navigate(['/dashboard']); });
+            this.authService.isLoggedIn = true;
+            this.cookieService.put("login", "true");
+            this.getToken();
         }
         else {
+            this.authService.isLoggedIn = false;
+            this.cookieService.put("login", "false");
             alert("bad user");
         }
     };
     LoginComponent.prototype.authorizeUser = function () {
         var regex = new RegExp("^.+@simprints.com");
         return regex.test(this.afAuth.auth.currentUser.email);
+    };
+    LoginComponent.prototype.getToken = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* Headers */]({ 'Content-Type': 'application/json' });
+        headers.append('Accept', 'application/json');
+        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        this.http.post(this.url, JSON.stringify({ apiKey: this.apiKey }), options).map(function (response) {
+            return response.json();
+        }).subscribe(function (data) {
+            _this.afAuth.auth.signInWithCustomToken(data.token).then(function (data) { return _this.router.navigate(['/dashboard']); });
+        });
     };
     return LoginComponent;
 }());
@@ -1314,10 +1359,10 @@ LoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/login.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["e" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["e" /* Http */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angular2_cookie_core__["CookieService"]) === "function" && _e || Object])
 ], LoginComponent);
 
-var _a, _b;
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=login.component.js.map
 
 /***/ }),
