@@ -1826,7 +1826,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/map/map.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='project' class=\"containerMap\">\n  <div class=\"filterData\">\n    <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n    <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n    <span class=\"textFilter\">User filter:</span>\n    <multiple-select [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    <span class=\"textFilter\">Activity filter:</span>\n    <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n    <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n  </div>\n  <div class=\"containerMapInfo\">\n    <agm-map class=\"map\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n      <agm-marker *ngFor=\"let session of sessionMap\"\n                  [latitude]=\"session.latitude\"\n                  [longitude]=\"session.longitude\"\n                  [iconUrl]=\"session.iconUrl\">\n      </agm-marker>\n    </agm-map>\n    <div class=\"info\">\n      <div class=\"title\">\n        Activity\n      </div>\n      <div class=\"borderSeparate\"></div>\n      <div class=\"listData\" #listData (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions\" class=\"data\">\n          <div>{{session['userId']}}</div>\n          <div>\n            {{session['callout']}}\n            {{session['serverSessionStartTime'] | date}}\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"buttonReplay\">\n    <div class=\"element\" *ngIf=\"replayActif[0]\">\n        <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        10\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[0]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(10, 0)\">\n        10\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[1]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        25\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[1]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(25, 1)\">\n        25\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[2]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        50\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[2]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(50, 2)\">\n        50\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[3]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        75\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[3]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(75, 3)\">\n        75\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[4]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        100\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[4]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(100, 4)\">\n        100\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
+module.exports = "<div *ngIf='project' class=\"containerMap\">\n  <div class=\"filterData\">\n    <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n    <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n    <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n    <multiple-select *ngIf=\"project.name !== 'Global'\" [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    <span class=\"textFilter\">Activity filter:</span>\n    <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n    <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n  </div>\n  <div class=\"containerMapInfo\">\n    <agm-map class=\"map\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n      <agm-marker *ngFor=\"let session of sessionMap\"\n                  [latitude]=\"session.latitude\"\n                  [longitude]=\"session.longitude\"\n                  [iconUrl]=\"session.iconUrl\">\n      </agm-marker>\n    </agm-map>\n    <div class=\"info\">\n      <div class=\"title\">\n        Activity\n      </div>\n      <div class=\"borderSeparate\"></div>\n      <div class=\"listData\" #listData (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions\" class=\"data\">\n          <div>{{session['userId']}}</div>\n          <div>\n            {{session['callout']}}\n            {{session['serverSessionStartTime'] | date}}\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"buttonReplay\">\n    <div class=\"element\" *ngIf=\"replayActif[0]\">\n        <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        10\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[0]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(10, 0)\">\n        10\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[1]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        25\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[1]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(25, 1)\">\n        25\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[2]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        50\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[2]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(50, 2)\">\n        50\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[3]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        75\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[3]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(75, 3)\">\n        75\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[4]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        100\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[4]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(100, 4)\">\n        100\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
 
 /***/ }),
 
@@ -1884,12 +1884,17 @@ var MapComponent = (function () {
     };
     MapComponent.prototype.getData = function (dateEnd, dateStart, users, activity, reset, nbPush, skipLast, changeValue) {
         var _this = this;
+        var url;
+        if (this.project.name === 'Global')
+            url = '/all-sessions';
+        else
+            url = '/project-sessions/' + this.project.id;
         var nb = this.nbValByRequest;
         if (skipLast)
             nb++;
         if (reset)
             this.sessions = [];
-        this.database.list('/project-sessions/' + this.project.id, {
+        this.database.list(url, {
             query: {
                 orderByChild: 'serverSessionStartTime',
                 endAt: dateEnd,
@@ -1907,7 +1912,7 @@ var MapComponent = (function () {
                     _this.lastSession = session;
                     getFirst = true;
                 }
-                if (activity.includes(session.callout) && (users.includes(session.userId) || users.includes('ID-' + session.userId)) &&
+                if (activity.includes(session.callout) && (_this.project.name === 'Global' || users.includes(session.userId) || users.includes('ID-' + session.userId)) &&
                     !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_util__["isUndefined"])(session['latitude']) && !__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_util__["isUndefined"])(session['longitude'])) {
                     if (nbGet !== nb || !skipLast) {
                         nbPush++;
@@ -1921,7 +1926,7 @@ var MapComponent = (function () {
             });
             tmpSession.reverse();
             tmpSession.forEach(function (it) { return _this.sessions.push(it); });
-            console.log("ok");
+            console.log(nbGet);
             if (nbGet < nb) {
                 _this.changeSessionMap(0, Math.round(_this.listData.nativeElement.clientHeight / _this.heightChildren));
                 _this.finish = true;
@@ -3405,8 +3410,8 @@ var ProjectPerformanceComponent = (function () {
             }
         }
         var total;
-        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.dateEnd)) {
-            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.dateStart))
+        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(data[this.dateEnd])) {
+            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(data[this.dateStart]))
                 total = (data[this.dateEnd]["totalToDate"] || 0) - (data[this.dateStart]["totalToDate"] || 0);
             else
                 total = (data[this.dateEnd]["totalToDate"] || 0);
@@ -3472,8 +3477,8 @@ var ProjectPerformanceComponent = (function () {
     ProjectPerformanceComponent.prototype.computeNewValueAccuracyGraph = function (data) {
         var graph = [];
         var total;
-        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.dateEnd)) {
-            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.dateStart))
+        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(data[this.dateEnd])) {
+            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(data[this.dateStart]))
                 total = (data[this.dateEnd]["totalToDate"] || 0) - (data[this.dateStart]["totalToDate"] || 0);
             else
                 total = (data[this.dateEnd]["totalToDate"] || 0);
@@ -3558,7 +3563,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/table/table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='project' class=\"containerTable\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n      <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n      <span class=\"textFilter\">User filter:</span>\n      <multiple-select [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n      <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n    </div>\n    <div class=\"table\">\n      <div class=\"header\">\n        <div class=\"titleColumn\">\n          Time\n        </div>\n        <div class=\"titleColumn\">\n          User\n        </div>\n        <div class=\"titleColumn\">\n          Activity\n        </div>\n        <div class=\"titleColumn\">\n          GPS\n        </div>\n        <div class=\"titleColumn\">\n          Match Speed\n        </div>\n        <div class=\"titleColumn\">\n          Version\n        </div>\n      </div>\n      <div class=\"listData\" (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions; let odd = odd; let even = even\" class=\"rowData\" [ngClass]=\"{ odd: odd, even: even }\">\n          <div class=\"data\">{{session['Time']}}</div>\n          <div class=\"data\">{{session['User']}}</div>\n          <div class=\"data\">{{session['Activity']}}</div>\n          <div class=\"data\">{{session['GPS']}}</div>\n          <div class=\"data\">{{session['Match Speed']}}</div>\n          <div class=\"data\">{{session['Version']}}</div>\n        </div>\n      </div>\n  </div>\n  <div class=\"buttonDownload\">\n    <div class=\"button\" (click)=\"exportCSV()\"><i class=\"fa fa-download iconDownload\" aria-hidden=\"true\"></i>CSV</div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
+module.exports = "<div *ngIf='project' class=\"containerTable\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n      <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n      <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n    </div>\n    <div class=\"table\">\n      <div class=\"header\">\n        <div class=\"titleColumn\">\n          Time\n        </div>\n        <div class=\"titleColumn\">\n          User\n        </div>\n        <div class=\"titleColumn\">\n          Activity\n        </div>\n        <div class=\"titleColumn\">\n          GPS\n        </div>\n        <div class=\"titleColumn\">\n          Match Speed\n        </div>\n        <div class=\"titleColumn\">\n          Version\n        </div>\n      </div>\n      <div class=\"listData\" (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions; let odd = odd; let even = even\" class=\"rowData\" [ngClass]=\"{ odd: odd, even: even }\">\n          <div class=\"data\">{{session['Time']}}</div>\n          <div class=\"data\">{{session['User']}}</div>\n          <div class=\"data\">{{session['Activity']}}</div>\n          <div class=\"data\">{{session['GPS']}}</div>\n          <div class=\"data\">{{session['Match Speed']}}</div>\n          <div class=\"data\">{{session['Version']}}</div>\n        </div>\n      </div>\n  </div>\n  <div class=\"buttonDownload\">\n    <div class=\"button\" (click)=\"exportCSV()\"><i class=\"fa fa-download iconDownload\" aria-hidden=\"true\"></i>CSV</div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
 
 /***/ }),
 
@@ -3615,13 +3620,17 @@ var TableComponent = (function () {
     };
     TableComponent.prototype.getData = function (dateEnd, dateStart, users, activity, reset, nbPush, skipLast) {
         var _this = this;
-        console.log(dateEnd);
+        var url;
+        if (this.project.name === 'Global')
+            url = '/all-sessions';
+        else
+            url = '/project-sessions/' + this.project.id;
         var nb = this.nbValByRequest;
         if (skipLast)
             nb++;
         if (reset)
             this.sessions = [];
-        this.database.list('/project-sessions/' + this.project.id, {
+        this.database.list(url, {
             query: {
                 orderByChild: 'serverSessionStartTime',
                 endAt: dateEnd,
@@ -3639,7 +3648,7 @@ var TableComponent = (function () {
                     _this.lastSession = session;
                     getFirst = true;
                 }
-                if (activity.includes(session.callout) && (users.includes(session.userId) || users.includes('ID-' + session.userId))) {
+                if (activity.includes(session.callout) && (_this.project.name === 'Global' || (users.includes(session.userId) || users.includes('ID-' + session.userId)))) {
                     if (nbGet !== nb || !skipLast) {
                         var newSession = {};
                         newSession['Time'] = _this.datePipe.transform(session['serverSessionStartTime']);
