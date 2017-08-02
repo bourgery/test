@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "html {\n    height: 100%;\n    font-family: Roboto, sans-serif;\n}\n\nbody{\n\theight: 100%;\n\tmargin: 0;\n}\n\nselect{\n\tdisplay: inline-block;\n}", ""]);
+exports.push([module.i, "html {\n    height: 100%;\n    font-family: Roboto, sans-serif;\n}\n\nbody{\n\theight: 100%;\n\tmargin: 0;\n  background-color: rgb(241, 241, 241);\n}\n\nselect{\n\tdisplay: inline-block;\n}\n", ""]);
 
 // exports
 
