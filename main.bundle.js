@@ -1596,15 +1596,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var LoginComponent = (function () {
+    //url = 'https://script-update-dot-simprints-dev.appspot.com/updateCounter';//'https://simprints-dev.appspot.com/key';
+    //apiKey = '708ba617e56449ec8163e820c390a91d0046c5f9dd344ae7ac9fbb9b0ae80d8c';
+    //token: string = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImUyOGU2MDQwOTI4OTA4ZTE2YzNjMThlNTc2ZDg1Y2QxNmEyNjRlZWEifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2ltcHJpbnRzLWRldiIsIm5hbWUiOiJZb2FubiBCb3VyZ2VyeSIsInBpY3R1cmUiOiJodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vLWtLYzhfdXdZR0lrL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFvL01tNTRYTjdXMVF3L3Bob3RvLmpwZyIsImF1ZCI6InNpbXByaW50cy1kZXYiLCJhdXRoX3RpbWUiOjE1MDE3NzYwMTAsInVzZXJfaWQiOiJNdHQ1TTJ3MDl3VWQ3WjV0Q29BTnRhU0psc3kxIiwic3ViIjoiTXR0NU0ydzA5d1VkN1o1dENvQU50YVNKbHN5MSIsImlhdCI6MTUwMTc3NjAxMCwiZXhwIjoxNTAxNzc5NjEwLCJlbWFpbCI6InlvYW5uQHNpbXByaW50cy5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjExMTQ1MTI0MTQ0NjQ1Njk4MDYwNyJdLCJlbWFpbCI6WyJ5b2FubkBzaW1wcmludHMuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.TPQsHwjrHZ8HkHfQ5koHJVFoSlqPPCmVgDERyTfTa4jebQCIFES5D5E2ferrGUxQNE86rRTGVr4k9Sf65rb7WWo07CS3LjLbk9oPES7XwsCrRwB6RzYjfs8XKtMHnges2-9gMBiMNPbsBMc-xOUK53GgeMDj5Yr1dEW3xsaIAtTHdnrUznPekKHiFzfAZgm1tDS8CYysm6SMxSoFbwey5BDx0jV3EJzFeWCv4DYO-ez7A0fKT4QkfYRHBxdZ7Uscd2x48GiojogAmI81w20yAsxmr0Nj_aL2EBP7jSGsunsy8qku2Y3SSm9NR3LxU1ujdfJ18527e4_K3xyCig4gsg';
+    //img: string;
     function LoginComponent(afAuth, router, http) {
         this.afAuth = afAuth;
         this.router = router;
         this.http = http;
         this.load = false;
-        this.url = 'https://script-update-dot-simprints-dev.appspot.com/updateCounter'; //'https://simprints-dev.appspot.com/key';
-        this.apiKey = '708ba617e56449ec8163e820c390a91d0046c5f9dd344ae7ac9fbb9b0ae80d8c';
-        this.token = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImUyOGU2MDQwOTI4OTA4ZTE2YzNjMThlNTc2ZDg1Y2QxNmEyNjRlZWEifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2ltcHJpbnRzLWRldiIsIm5hbWUiOiJZb2FubiBCb3VyZ2VyeSIsInBpY3R1cmUiOiJodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vLWtLYzhfdXdZR0lrL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFvL01tNTRYTjdXMVF3L3Bob3RvLmpwZyIsImF1ZCI6InNpbXByaW50cy1kZXYiLCJhdXRoX3RpbWUiOjE1MDE3NzYwMTAsInVzZXJfaWQiOiJNdHQ1TTJ3MDl3VWQ3WjV0Q29BTnRhU0psc3kxIiwic3ViIjoiTXR0NU0ydzA5d1VkN1o1dENvQU50YVNKbHN5MSIsImlhdCI6MTUwMTc3NjAxMCwiZXhwIjoxNTAxNzc5NjEwLCJlbWFpbCI6InlvYW5uQHNpbXByaW50cy5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjExMTQ1MTI0MTQ0NjQ1Njk4MDYwNyJdLCJlbWFpbCI6WyJ5b2FubkBzaW1wcmludHMuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.TPQsHwjrHZ8HkHfQ5koHJVFoSlqPPCmVgDERyTfTa4jebQCIFES5D5E2ferrGUxQNE86rRTGVr4k9Sf65rb7WWo07CS3LjLbk9oPES7XwsCrRwB6RzYjfs8XKtMHnges2-9gMBiMNPbsBMc-xOUK53GgeMDj5Yr1dEW3xsaIAtTHdnrUznPekKHiFzfAZgm1tDS8CYysm6SMxSoFbwey5BDx0jV3EJzFeWCv4DYO-ez7A0fKT4QkfYRHBxdZ7Uscd2x48GiojogAmI81w20yAsxmr0Nj_aL2EBP7jSGsunsy8qku2Y3SSm9NR3LxU1ujdfJ18527e4_K3xyCig4gsg';
-        this.getToken();
     }
     LoginComponent.prototype.login = function () {
         var _this = this;
@@ -1620,26 +1620,6 @@ var LoginComponent = (function () {
             return _this.router.navigate(['/dashboard']);
             // this.checkUser();
         });
-    };
-    LoginComponent.prototype.checkUser = function () {
-        if (this.authorizeUser()) {
-            this.getToken();
-        }
-        else {
-            alert('bad user');
-        }
-    };
-    LoginComponent.prototype.authorizeUser = function () {
-        var regex = new RegExp("^.+@simprints.com");
-        return regex.test(this.afAuth.auth.currentUser.email);
-    };
-    LoginComponent.prototype.getToken = function () {
-        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        var val = 'Bearer ' + this.token;
-        headers.append('Authorization', val);
-        var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* RequestOptions */]({ headers: headers });
-        this.http.post(this.url, JSON.stringify({ path: "/dashboard/project/t/project-data/identifications/globalCount", date: null, up: true }), options).map(function (response) {
-        }).subscribe();
     };
     return LoginComponent;
 }());
