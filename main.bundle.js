@@ -3104,6 +3104,7 @@ var ProjectPerformanceComponent = (function () {
         this.chooseUser = [];
         this.accuracy = 0;
         this.displayChart = false;
+        this.total = 0;
         this.lineChartLegend = true;
         this.lineChartType = 'line';
         this.lineChartOptions = {
@@ -3274,7 +3275,7 @@ var ProjectPerformanceComponent = (function () {
                     val += (data[this.dateEnd][i + "ToDate"] || 0);
             }
         }
-        var total;
+        var total = 0;
         if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(data[this.dateEnd])) {
             if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(data[this.dateStart]))
                 total = (data[this.dateEnd]["totalToDate"] || 0) - (data[this.dateStart]["totalToDate"] || 0);
@@ -3298,7 +3299,7 @@ var ProjectPerformanceComponent = (function () {
                     val += (data[this.dateEnd][i + "ToDate"] || 0);
             }
         }
-        var nbLastTier;
+        var nbLastTier = 0;
         if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(data[this.dateEnd])) {
             if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(data[this.dateStart]))
                 nbLastTier = (data[this.dateEnd]["5ToDate"] || 0) - (data[this.dateStart]["5ToDate"] || 0);
