@@ -221,7 +221,6 @@ var AuthGuard = (function () {
     }
     AuthGuard.prototype.canActivate = function (route, state) {
         var _this = this;
-        var url = state.url;
         console.log("canActivate");
         return this.authService.isLoggedIn
             .map(function (auth) { return auth !== null; })
@@ -251,9 +250,7 @@ var _a, _b;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__ = __webpack_require__("../../../../angular2-cookie/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -266,10 +263,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var AuthService = (function () {
-    function AuthService(cookieService, afAuth) {
-        this.cookieService = cookieService;
+    function AuthService(afAuth) {
         this.afAuth = afAuth;
         this.isLoggedIn = this.afAuth.idToken;
     }
@@ -280,10 +275,10 @@ var AuthService = (function () {
 }());
 AuthService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_cookie_core__["CookieService"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object])
 ], AuthService);
 
-var _a, _b;
+var _a;
 //# sourceMappingURL=auth.service.js.map
 
 /***/ }),
@@ -584,7 +579,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".containerChart{\n  position: absolute;\n  left: 2vw;\n  top: 35vh;\n  padding-bottom: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-top: 15px;\n}\n\n.filterDate{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-bottom: 8px;\n}\n\n.imgClock{\n  width: 20px;\n  height: 20px;\n  margin-top: 2px;\n}\n\n.textFilter{\n  margin-top: 3px;\n  margin-left: 5px;\n}\n\n.dateInput{\n  margin-left: 5px;\n  height: 28px;\n  width: 130px;\n}\n\n.buttonLastWeek{\n  margin-left: 15px;\n  color: white;\n  background-color: rgb(39, 170, 225);;\n}\n", ""]);
+exports.push([module.i, ".containerChart{\n  position: absolute;\n  left: 2vw;\n  padding-bottom: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-top: 15px;\n}\n\n.filterDate{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-bottom: 8px;\n}\n\n.imgClock{\n  width: 20px;\n  height: 20px;\n  margin-top: 2px;\n}\n\n.textFilter{\n  margin-top: 3px;\n  margin-left: 5px;\n}\n\n.dateInput{\n  margin-left: 5px;\n  height: 28px;\n  width: 130px;\n}\n\n.buttonLastWeek{\n  margin-left: 15px;\n  color: white;\n  background-color: rgb(39, 170, 225);;\n}\n\n.sendApi{\n  position: absolute;\n  right: 10px;\n}\n", ""]);
 
 // exports
 
@@ -597,7 +592,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/chart/chart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='project' class=\"containerChart\">\n  <div class=\"filterDate\">\n    <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n    <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"globalDateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"globalDateEnd\">\n    <button class=\"buttonLastWeek\" (click)=\"changeLastWeekDate()\">Last week</button>\n    <button class=\"buttonLastWeek\" (click)=\"changeLastMonthDate()\">Last month</button>\n  </div>\n  <general-info *ngIf=\"project.name !== 'Global'\" [project]=\"project\"></general-info>\n  <project-impact *ngIf='load' [project]=\"project\" [dateStartGlobal]=\"globalDateStart\" [dateEndGlobal]=\"globalDateEnd\"></project-impact>\n  <project-performance *ngIf='load' [project]=\"project\" [type]=\"'IDENTIFY'\"\n                       [dateStartGlobal]=\"globalDateStart\" [dateEndGlobal]=\"globalDateEnd\"></project-performance>\n  <project-performance *ngIf='load && isVerify' [project]=\"project\" [type]=\"'VERIFY'\"\n                       [dateStartGlobal]=\"globalDateStart\" [dateEndGlobal]=\"globalDateEnd\"></project-performance>\n  <project-error *ngIf='load' [project]=\"project\" [dateStartGlobal]=\"globalDateStart\" [dateEndGlobal]=\"globalDateEnd\"></project-error>\n  <user-info *ngIf='load' [project]=\"project\"></user-info>\n</div>\n<div *ngIf='!load'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
+module.exports = "<div *ngIf='project' class=\"containerChart\">\n  <div class=\"filterDate\">\n    <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n    <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"globalDateStart\">\n    <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"globalDateEnd\">\n    <button class=\"buttonLastWeek\" (click)=\"changeLastWeekDate()\">Last week</button>\n    <button class=\"buttonLastWeek\" (click)=\"changeLastMonthDate()\">Last month</button>\n    <button class=\"sendApi\" (click)=\"sendApi()\">Send me API key</button>\n  </div>\n  <general-info *ngIf=\"project.name !== 'Global'\" [project]=\"project\"></general-info>\n  <project-impact *ngIf='load' [project]=\"project\" [dateStartGlobal]=\"globalDateStart\" [dateEndGlobal]=\"globalDateEnd\"></project-impact>\n  <project-performance *ngIf='load' [project]=\"project\" [type]=\"'IDENTIFY'\"\n                       [dateStartGlobal]=\"globalDateStart\" [dateEndGlobal]=\"globalDateEnd\"></project-performance>\n  <project-performance *ngIf='load && isVerify' [project]=\"project\" [type]=\"'VERIFY'\"\n                       [dateStartGlobal]=\"globalDateStart\" [dateEndGlobal]=\"globalDateEnd\"></project-performance>\n  <project-error *ngIf='load' [project]=\"project\" [dateStartGlobal]=\"globalDateStart\" [dateEndGlobal]=\"globalDateEnd\"></project-error>\n  <user-info *ngIf='load' [project]=\"project\"></user-info>\n</div>\n<div *ngIf='!loadSpinner'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
 
 /***/ }),
 
@@ -607,8 +602,10 @@ module.exports = "<div *ngIf='project' class=\"containerChart\">\n  <div class=\
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_project__ = __webpack_require__("../../../../../src/app/class/project.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__class_utils__ = __webpack_require__("../../../../../src/app/class/utils.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__class_project__ = __webpack_require__("../../../../../src/app/class/project.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__class_utils__ = __webpack_require__("../../../../../src/app/class/utils.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChartComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -623,18 +620,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var ChartComponent = (function () {
-    function ChartComponent(database) {
+    function ChartComponent(database, http, afAuth) {
         this.database = database;
+        this.http = http;
+        this.afAuth = afAuth;
         this.load = false;
+        this.loadSpinner = false;
         this.isVerify = false;
     }
     ChartComponent.prototype.ngOnChanges = function () {
         var _this = this;
-        this.globalDateStart = __WEBPACK_IMPORTED_MODULE_3__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now() - (7 * 24 * 3600 * 1000));
-        this.globalDateEnd = __WEBPACK_IMPORTED_MODULE_3__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now());
+        this.globalDateStart = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now() - (7 * 24 * 3600 * 1000));
+        this.globalDateEnd = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now());
         if (this.project.name !== 'Global') {
             this.load = false;
+            this.loadSpinner = false;
             this.database.list("/project-verifications/" + this.project.id, {
                 query: {
                     limitToFirst: 1
@@ -650,26 +653,54 @@ var ChartComponent = (function () {
                 });
                 _this.project.listUsers.sort();
                 _this.load = true;
+                _this.loadSpinner = true;
             });
         }
         else {
             this.load = true;
+            this.loadSpinner = true;
             this.isVerify = true;
         }
     };
     ChartComponent.prototype.changeLastWeekDate = function () {
-        this.globalDateStart = __WEBPACK_IMPORTED_MODULE_3__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now() - (7 * 24 * 3600 * 1000));
-        this.globalDateEnd = __WEBPACK_IMPORTED_MODULE_3__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now());
+        this.globalDateStart = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now() - (7 * 24 * 3600 * 1000));
+        this.globalDateEnd = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now());
     };
     ChartComponent.prototype.changeLastMonthDate = function () {
-        this.globalDateStart = __WEBPACK_IMPORTED_MODULE_3__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now() - (30 * 24 * 3600 * 1000));
-        this.globalDateEnd = __WEBPACK_IMPORTED_MODULE_3__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now());
+        this.globalDateStart = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now() - (30 * 24 * 3600 * 1000));
+        this.globalDateEnd = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTimestampToDate(Date.now());
+    };
+    ChartComponent.prototype.changeDate = function () {
+        if (new Date(this.globalDateEnd) < new Date(this.globalDateStart)) {
+            var tmp = this.globalDateStart;
+            this.globalDateStart = this.globalDateEnd;
+            this.globalDateEnd = tmp;
+        }
+    };
+    ChartComponent.prototype.sendApi = function () {
+        var _this = this;
+        this.afAuth.auth.currentUser.getIdToken(true).then(function (token) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json', 'Authorization': "Bearer " + token });
+            var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* RequestOptions */]({ headers: headers });
+            _this.loadSpinner = false;
+            _this.http.post('https://send-email-dot-simprints-dev.appspot.com/sendEmail', JSON.stringify({
+                subject: "New project",
+                receiver: _this.afAuth.auth.currentUser.email,
+                text: "This is the apiKey of your project: " + _this.project.apiKey + " for the project " + _this.project.name
+            }), options)
+                .map(function (response) {
+                return response;
+            }).subscribe(function () {
+                _this.loadSpinner = true;
+                alert("You will receive an email at " + _this.afAuth.auth.currentUser.email + " with your apiKey");
+            });
+        });
     };
     return ChartComponent;
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__class_project__["a" /* Project */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__class_project__["a" /* Project */]) === "function" && _a || Object)
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__class_project__["a" /* Project */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__class_project__["a" /* Project */]) === "function" && _a || Object)
 ], ChartComponent.prototype, "project", void 0);
 ChartComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -677,10 +708,10 @@ ChartComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/chart/chart.component.html"),
         styles: [__webpack_require__("../../../../../src/app/chart/chart.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["f" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["f" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _d || Object])
 ], ChartComponent);
 
-var _a, _b;
+var _a, _b, _c, _d;
 //# sourceMappingURL=chart.component.js.map
 
 /***/ }),
@@ -713,21 +744,6 @@ var Project = (function () {
 }());
 
 //# sourceMappingURL=project.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/class/projectCreate.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectCreate; });
-var ProjectCreate = (function () {
-    function ProjectCreate() {
-    }
-    return ProjectCreate;
-}());
-
-//# sourceMappingURL=projectCreate.js.map
 
 /***/ }),
 
@@ -836,7 +852,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/create_project/create-project.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"containerCreateProject\">\n\t<form (ngSubmit)=\"onSubmit()\" #createProjectForm=\"ngForm\">\n\t\t<div class=\"inline\">\n\t\t\t<div class=\"form-group inputWidth\">\n\t          \t<label for=\"name\">Name</label>\n\t          \t<input type=\"text\" class=\"form-control\" id=\"name\"\n\t                 [(ngModel)]=\"project.name\" name=\"name\"\n\t                 #name=\"ngModel\" required=\"required\">\n\t        </div>\n\t        <div class=\"form-group marginLeft inputWidth\">\n\t          \t<label for=\"informations\">Informations</label>\n\t          \t<input type=\"text\" class=\"form-control\" id=\"informations\"\n\t                 [(ngModel)]=\"project.informations\" name=\"informations\"\n\t                 #informations=\"ngModel\" required=\"required\">\n\t        </div>\n\t    </div>\n\t    <div class=\"inline\">\n\t        <div class=\"form-group inputWidth\">\n\t         \t<label for=\"projectManager\">Project Manager</label>\n\t          \t<input type=\"text\" class=\"form-control\" id=\"projectManager\"\n\t                 [(ngModel)]=\"project.projectManager\" name=\"projectManager\"\n\t                 #projectManager=\"ngModel\" required=\"required\">\n\t        </div>\n\t        <div class=\"form-group marginLeft inputWidth\">\n\t         \t<label for=\"contract\">Contract </label>\n\t          \t<input type=\"text\" class=\"form-control\" id=\"contract\"\n\t                 [(ngModel)]=\"project.contract\" name=\"contract\"\n\t                 #contract=\"ngModel\" required=\"required\">\n\t        </div>\n\t    </div>\n\t    <div class=\"inline\">\n\t\t\t<div class=\"form-group inputWidth\">\n\t        \t<label for=\"dateStart\">Date start</label>\n\t        \t<input type=\"date\" name=\"dateStart\" id=\"dateStart\" class=\"datepicker\" [(ngModel)]=\"project.dateStart\" required>\n\t        </div>\n\t        <div class=\"form-group marginLeft inputWidth\">\n\t        \t<label for=\"dateEnd\">Date end</label>\n\t        \t<input type=\"date\" name=\"dateEnd\" id=\"dateEnd\" class=\"datepicker\" [(ngModel)]=\"project.dateEnd\" required>\n\t        </div>\n\t    </div>\n\t\t<div class=\"form-group\">\n        \t<label for=\"test\">Test : </label>\n        \t<input type=\"radio\" name=\"test\" value=\"true\" [checked]=\"test\"> Yes\n        \t<input type=\"radio\" name=\"test\" value=\"false\" [checked]='test == false'> No\n        </div>\n        <button type=\"submit\" \n        \t\t[disabled]=\"!createProjectForm.form.valid\">\n        \t\tCreate\n        </button>\n\t</form>\n\t<div *ngIf='load'>\n\t\t<ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n\t</div>\n</div>"
+module.exports = "<div class=\"containerCreateProject\">\n\t<form (ngSubmit)=\"onSubmit()\" #createProjectForm=\"ngForm\">\n\t\t<div class=\"inline\">\n\t\t\t<div class=\"form-group inputWidth\">\n\t          \t<label for=\"name\">Name</label>\n\t          \t<input class=\"form-control\" id=\"name\"\n\t                 [(ngModel)]=\"project.name\" name=\"name\"\n\t                 #name=\"ngModel\" required>\n\t        </div>\n\t        <div class=\"form-group marginLeft inputWidth\">\n\t          \t<label for=\"details\">Detail du project</label>\n\t          \t<textarea type=\"text\" class=\"form-control\" id=\"details\"\n\t                 [(ngModel)]=\"project.details\" name=\"details\"\n                        #informations=\"ngModel\" required></textarea>\n\t        </div>\n\t    </div>\n\t    <div class=\"inline\">\n\t        <div class=\"form-group inputWidth\">\n\t         \t<label for=\"projectManager\">Project Manager</label>\n\t          \t<input class=\"form-control\" id=\"projectManager\"\n\t                 [(ngModel)]=\"project.projectManager\" name=\"projectManager\"\n\t                 #projectManager=\"ngModel\" required>\n\t        </div>\n\t        <div class=\"form-group marginLeft inputWidth\">\n\t         \t<label for=\"contract\">Contract </label>\n\t          \t<input class=\"form-control\" id=\"contract\"\n\t                 [(ngModel)]=\"project.contract\" name=\"contract\"\n\t                 #contract=\"ngModel\" required>\n\t        </div>\n\t    </div>\n\t    <div class=\"inline\">\n\t\t\t<div class=\"form-group inputWidth\">\n\t        \t<label for=\"dateStart\">Date start</label>\n\t        \t<input type=\"date\" name=\"dateStart\" id=\"dateStart\" class=\"datepicker\" [(ngModel)]=\"project.dateStart\" required>\n\t        </div>\n\t        <div class=\"form-group marginLeft inputWidth\">\n\t        \t<label for=\"dateEnd\">Date end</label>\n\t        \t<input type=\"date\" name=\"dateEnd\" id=\"dateEnd\" class=\"datepicker\" [(ngModel)]=\"project.dateEnd\">\n\t        </div>\n\t    </div>\n\t\t<div class=\"form-group\">\n        \t<label>Test : </label>\n        \t<input type=\"radio\" name=\"test\" value=\"true\" [checked]=\"test\"> Yes\n        \t<input type=\"radio\" name=\"test\" value=\"false\" [checked]='test == false'> No\n        </div>\n        <button\n        \t\t[disabled]=\"!createProjectForm.form.valid\">\n        \t\tCreate\n        </button>\n\t</form>\n\t<div *ngIf='load'>\n\t\t<ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -845,10 +861,8 @@ module.exports = "<div class=\"containerCreateProject\">\n\t<form (ngSubmit)=\"o
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_service__ = __webpack_require__("../../../../../src/app/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__class_projectCreate__ = __webpack_require__("../../../../../src/app/class/projectCreate.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateProjectComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -862,45 +876,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 var CreateProjectComponent = (function () {
-    function CreateProjectComponent(http, authService, database) {
+    function CreateProjectComponent(http, afAuth) {
         this.http = http;
-        this.authService = authService;
-        this.database = database;
-        this.project = new __WEBPACK_IMPORTED_MODULE_3__class_projectCreate__["a" /* ProjectCreate */]();
+        this.afAuth = afAuth;
+        this.project = {};
         this.test = true;
         this.load = false;
-        this.key = "708ba617e56449ec8163e820c390a91d0046c5f9dd344ae7ac9fbb9b0ae80d8c";
-        this.url = "https://create-project-dot-simprints-dev.appspot.com/createApi";
+        this.url = "https://us-central1-simprints-dev.cloudfunctions.net/create_project/createProject";
     }
+    CreateProjectComponent.prototype.ngOnInit = function () {
+        this.project.name = '';
+        this.project.projectManager = '';
+        this.project.contract = '';
+        this.project.dateStart = '';
+        this.project.dateEnd = '';
+        this.project.details = '';
+    };
     CreateProjectComponent.prototype.onSubmit = function () {
         var _this = this;
-        this.project.test = this.test;
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
-        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
-        var data = {
-            data: {
-                Info: this.project.informations,
-                Issuer: this.authService.login,
-                Test: this.project.test
-            },
-            key: this.key
-        };
-        this.load = true;
-        this.http.post(this.url, JSON.stringify(data), options)
-            .map(function (response) {
-            return response.json();
-        }).subscribe(function (data) {
-            _this.database.object("/project-informations/" + data.apiKey)
-                .set({ projectManager: _this.project.projectManager,
-                projectName: _this.project.name,
-                contract: _this.project.contract,
-                dateStart: _this.project.dateStart,
-                dateEnd: _this.project.dateEnd })
-                .then(function () {
-                _this.load = false;
+        this.afAuth.auth.currentUser.getIdToken(true).then(function (token) {
+            _this.project.test = _this.test;
+            var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json', 'Authorization': "Bearer " + token });
+            var options = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* RequestOptions */]({ headers: headers });
+            var data = {
+                data: {
+                    Info: "create key for project " + _this.project.name,
+                    Issuer: _this.afAuth.auth.currentUser.displayName,
+                    Test: _this.project.test
+                },
+                info: {
+                    projectManager: _this.project.projectManager,
+                    projectName: _this.project.name,
+                    contract: _this.project.contract,
+                    dateStart: _this.project.dateStart,
+                    dateEnd: _this.project.dateEnd
+                }
+            };
+            _this.load = true;
+            _this.http.post(_this.url, JSON.stringify(data), options)
+                .map(function (response) {
+                return response.json();
+            }).subscribe(function (json) {
+                _this.http.post('https://send-email-dot-simprints-dev.appspot.com/sendEmail', JSON.stringify({
+                    subject: "New project",
+                    receiver: _this.afAuth.auth.currentUser.email,
+                    text: "You create a new project called " + _this.project.name + ". This is the apiKey of your project: " + json.apiKey + " \n            and this is the projectId " + json.projectId
+                }), options)
+                    .map(function (response) {
+                    return response;
+                }).subscribe(function () {
+                    _this.load = false;
+                    alert("You will receiver an email at " + _this.afAuth.auth.currentUser.email + " with your apiKey and projectId");
+                });
             });
         });
     };
@@ -912,10 +940,10 @@ CreateProjectComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/create_project/create-project.component.html"),
         styles: [__webpack_require__("../../../../../src/app/create_project/create-project.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["f" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["f" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__auth_service__["a" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["f" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["f" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _b || Object])
 ], CreateProjectComponent);
 
-var _a, _b, _c;
+var _a, _b;
 //# sourceMappingURL=create-project.component.js.map
 
 /***/ }),
@@ -928,7 +956,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container{\n  height: 100vh;\n  overflow-y: scroll;\n  position: absolute;\n  top: 0;\n  left: 17vw;\n  width: 83vw;\n}\n\n.barTop{\n\theight: 25vh;\n\tcolor: white;\n\tfont-size: 250%;\n\ttext-align: center;\n}\n\n.imgTop{\n\twidth: 83vw;\n\theight: 25vh;\n}\n\n.textBarTop{\n\tposition: absolute;\n\ttop: 12vh;\n\tleft: 30vw;\n}\n\n.edit{\n  background-color: white;\n  position: absolute;\n  top: 21vh;\n  left: 74vw;\n  color: rgb(158, 159, 160);\n  font-size: 30%;\n  padding-right: 4px;\n  cursor: pointer;\n}\n\n.pencilEdit{\n  width: 10px;\n}\n\n.mainContainer{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\tbackground-color: rgb(241, 241, 241);\n  height: 75vh;\n}\n\n.mainTitle{\n\tmargin-top: 0;\n\tpadding-top: 30px;\n\tfont-size: 175%;\n\tpadding-left: 2vw;\n\tcolor: rgba(255, 255, 255, 0.5);\n}\n\n.logoTitle{\n\tpadding-top: 30px;\n\tpadding-left: 2vw;\n}\n\n.mainTitleNext{\n\tfont-size: 175%;\n\tpadding-left: 2vw;\n\tcolor: rgba(255, 255, 255, 0.5);\n}\n\n.borderSeparate{\n\tmargin-left: 1vw;\n\tmargin-right: 1vw;\n\tborder: 1px solid white;\n\theight: 2px;\n}\n\n.globalText{\n\tmargin-left: 2vw;\n\tmargin-top: 1vh;\n\tmargin-bottom: 1vh;\n}\n\n.selectMapChartSetting{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: row;\n\t        flex-direction: row;\n\theight: 10vh;\n  font-size: 140%;\n}\n\n.blockTextBorder{\n\twidth: 150px;\n\theight: 50px;\n\tmargin-top: 20px;\n\tmargin-left: 30px;\n\tcolor: rgb(158, 159, 160);\n}\n\n.blueText{\n  color: rgb(71, 139, 202);\n}\n\n.blueBorder{\n  border: 1px solid rgb(71, 139, 202);\n\twidth: 150px;\n}\n\n.borderUnderline{\n\tborder: 1px solid rgb(175, 176, 177);\n\twidth: 150px;\n}\n\n.projectName{\n\tpadding-top: 15px;\n\tpadding-left: 2vw;\n}\n\n.selectProject{\n  color: rgb(71, 139, 202);\n}\n\n.listProject{\n\tbackground-color: rgba(33, 33, 33, 1);\n\tcolor: white;\n\tmargin-left: 0;\n\twidth: 17vw;\n\toverflow-y: scroll;\n\theight: 100%;\n\tcursor: pointer;\n}\n.createProject{\n\tmargin-left: 2vw;\n\tmargin-top: 2vh;\n\ttext-align: center;\n\tcolor: black;\n}\n\n.logout{\n\tmargin-left: 2vw;\n\tmargin-top: 2vh;\n\ttext-align: center;\n\tcolor: rgb(237, 28, 36);\n}\n\n.paddingBottom{\n\theight: 2vh;\n}\n", ""]);
+exports.push([module.i, ".container{\n  height: 100vh;\n  overflow-y: scroll;\n  position: absolute;\n  top: 0;\n  left: 17vw;\n  width: 83vw;\n}\n\n.barTop{\n\theight: 25vh;\n\tcolor: white;\n\tfont-size: 250%;\n\ttext-align: center;\n}\n\n.imgTop{\n\twidth: 83vw;\n\theight: 25vh;\n}\n\n.textBarTop{\n\tposition: absolute;\n\ttop: 12vh;\n\tleft: 30vw;\n}\n\n.edit{\n  background-color: white;\n  position: absolute;\n  top: 21vh;\n  left: 74vw;\n  color: rgb(158, 159, 160);\n  font-size: 30%;\n  padding-right: 4px;\n  cursor: pointer;\n}\n\n.pencilEdit{\n  width: 10px;\n}\n\n.mainContainer{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\tbackground-color: rgb(241, 241, 241);\n  height: 75vh;\n}\n\n.mainTitle{\n\tmargin-top: 0;\n\tpadding-top: 30px;\n\tfont-size: 175%;\n\tpadding-left: 2vw;\n\tcolor: rgba(255, 255, 255, 0.5);\n}\n\n.logoTitle{\n\tpadding-top: 30px;\n\tpadding-left: 2vw;\n}\n\n.mainTitleNext{\n\tfont-size: 175%;\n\tpadding-left: 2vw;\n\tcolor: rgba(255, 255, 255, 0.5);\n}\n\n.borderSeparate{\n\tmargin-left: 1vw;\n\tmargin-right: 1vw;\n\tborder: 1px solid white;\n\theight: 2px;\n}\n\n.globalText{\n\tmargin-left: 2vw;\n\tmargin-top: 1vh;\n\tmargin-bottom: 1vh;\n}\n\n.selectMapChartSetting{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: row;\n\t        flex-direction: row;\n  font-size: 140%;\n}\n\n.blockTextBorder{\n\twidth: 150px;\n\theight: 50px;\n\tmargin-top: 20px;\n\tmargin-left: 30px;\n\tcolor: rgb(158, 159, 160);\n}\n\n.blueText{\n  color: rgb(71, 139, 202);\n}\n\n.blueBorder{\n  border: 1px solid rgb(71, 139, 202);\n\twidth: 150px;\n}\n\n.borderUnderline{\n\tborder: 1px solid rgb(175, 176, 177);\n\twidth: 150px;\n}\n\n.projectName{\n\tpadding-top: 15px;\n\tpadding-left: 2vw;\n}\n\n.selectProject{\n  color: rgb(71, 139, 202);\n}\n\n.listProject{\n\tbackground-color: rgba(33, 33, 33, 1);\n\tcolor: white;\n\tmargin-left: 0;\n\twidth: 17vw;\n\toverflow-y: scroll;\n\theight: 100%;\n\tcursor: pointer;\n}\n.createProject{\n\tmargin-left: 2vw;\n\tmargin-top: 2vh;\n\ttext-align: center;\n\tcolor: black;\n}\n\n.logout{\n\tmargin-left: 2vw;\n\tmargin-top: 2vh;\n\ttext-align: center;\n\tcolor: rgb(237, 28, 36);\n}\n\n.paddingBottom{\n\theight: 2vh;\n}\n", ""]);
 
 // exports
 
@@ -941,7 +969,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"listProject\">\n  <!--<div class=\"mainTitle\">Simprints</div>-->\n  <img class=\"logoTitle\" src=\"../../assets/logoWithoutBackground.png\">\n  <div class=\"mainTitleNext\">Projects </div>\n  <div class=\"mainTitleNext\">Dashboards</div><br/>\n  <div class=\"borderSeparate\"></div>\n  <div class=\"globalText selectProject\" *ngIf=\"'Global' === selectedProject.name\" (click)=\"seeGlobal()\">Global</div>\n  <div class=\"globalText\" *ngIf=\"'Global' !== selectedProject.name\" (click)=\"seeGlobal()\">Global</div>\n  <div class=\"borderSeparate\"></div>\n  <div *ngFor='let project of projects'>\n    <div (click)=\"selectProject(project)\">\n      <div *ngIf='selectedProject && project.name == selectedProject.name' class=\"projectName selectProject\">\n        {{project.name}}\n      </div>\n      <div *ngIf='!selectedProject || project.name != selectedProject.name' class=\"projectName\" >\n        {{project.name}}\n      </div>\n    </div>\n  </div>\n  <button *ngIf=\"admin\" (click)=\"selectOption = 'CreateProject'; selectedProject = null\" class=\"createProject\">Create a project</button><br/>\n  <button class=\"logout\" (click)=\"logout()\">Logout</button>\n  <div class=\"paddingBottom\"></div>\n</div>\n<div class=\"container\">\n<div class=\"barTop\">\n  <img class=\"imgTop\" *ngIf=\"selectedProject.name === ''\" src=\"../../assets/backgroundTop.png\">\n  <img class=\"imgTop\" *ngIf=\"selectedProject.name !== ''\" src=\"{{selectedProject.backgroundUrl}}\">\n  <div *ngIf=\"selectedProject.name === ''\" class=\"textBarTop\">Your Dashboard</div>\n  <div *ngIf=\"selectedProject.name !== ''\" class=\"textBarTop\">{{selectedProject.name}}</div>\n  <div *ngIf=\"selectedProject.name !== ''\" class=\"edit\" (click)=\"openFileLoader('fileLoader')\">\n    <input type=\"file\" id=\"fileLoader\" style=\"display: none\" (change)=\"editPicture($event)\">\n    <img class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n    Edit picture\n  </div>\n</div>\n<div *ngIf=\"selectedProject.name !== ''\" id=\"container\" class=\"mainContainer\">\n  <div class=\"selectMapChartSetting\">\n    <div *ngIf=\"selectOption == 'Chart'\" class=\"blockTextBorder blueText\">\n      <div>Chart</div>\n      <div class=\"blueBorder\"></div>\n    </div>\n    <div *ngIf=\"selectOption != 'Chart'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Chart'\">\n      <div>Chart</div>\n      <div class=\"borderUnderline\"></div>\n    </div>\n    <div *ngIf=\"selectOption == 'Map'\" class=\"blockTextBorder blueText\">\n      <div>Map</div>\n      <div class=\"blueBorder\"></div>\n    </div>\n    <div *ngIf=\"selectOption != 'Map'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Map'\">\n      <div>Map</div>\n      <div class=\"borderUnderline\"></div>\n    </div>\n    <div *ngIf=\"selectOption == 'Table'\" class=\"blockTextBorder blueText\">\n      <div>Table</div>\n      <div class=\"blueBorder\"></div>\n    </div>\n    <div *ngIf=\"selectOption != 'Table'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Table'\">\n      <div>Table</div>\n      <div class=\"borderUnderline\"></div>\n    </div>\n    <div *ngIf=\"selectOption == 'Settings'\" class=\"blockTextBorder blueText\">\n      <div>Settings</div>\n      <div class=\"blueBorder\"></div>\n    </div>\n    <div *ngIf=\"selectOption != 'Settings'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Settings'\">\n      <div>Settings</div>\n      <div class=\"borderUnderline\"></div>\n    </div>\n  </div>\n  <chart *ngIf=\"selectOption == 'Chart'\" [project]=\"selectedProject\"></chart>\n  <map *ngIf=\"selectOption == 'Map'\" [project]=\"selectedProject\"></map>\n  <table *ngIf=\"selectOption == 'Table'\" [project]=\"selectedProject\"></table>\n  <change-config *ngIf=\"selectOption == 'Settings' && selectedProject.name != 'Global'\" [project]=\"selectedProject\"></change-config>\n  <change-config-admin *ngIf=\"selectOption == 'Settings' && selectedProject.name == 'Global'\" [project]=\"selectedProject\"></change-config-admin>\n</div>\n</div>\n<create-project *ngIf=\"selectOption == 'CreateProject'\"></create-project>\n"
+module.exports = "<div class=\"listProject\">\n  <img class=\"logoTitle\" src=\"../../assets/logoWithoutBackground.png\">\n  <div class=\"mainTitleNext\">Projects </div>\n  <div class=\"mainTitleNext\">Dashboards</div><br/>\n  <div class=\"borderSeparate\"></div>\n  <div class=\"globalText selectProject\" *ngIf=\"selectedProject && 'Global' === selectedProject.name\" (click)=\"seeGlobal()\">Global</div>\n  <div class=\"globalText\" *ngIf=\"!selectedProject || 'Global' !== selectedProject.name\" (click)=\"seeGlobal()\">Global</div>\n  <div class=\"borderSeparate\"></div>\n  <div *ngFor='let project of projects'>\n    <div (click)=\"selectProject(project)\">\n      <div *ngIf='selectedProject && project.name == selectedProject.name' class=\"projectName selectProject\">\n        {{project.name}}\n      </div>\n      <div *ngIf='!selectedProject || project.name != selectedProject.name' class=\"projectName\" >\n        {{project.name}}\n      </div>\n    </div>\n  </div>\n  <button *ngIf=\"admin\" (click)=\"createProject()\" class=\"createProject\">Create a project</button><br/>\n  <button class=\"logout\" (click)=\"logout()\">Logout</button>\n  <div class=\"paddingBottom\"></div>\n</div>\n<div class=\"container\">\n<div class=\"barTop\">\n  <img class=\"imgTop\" *ngIf=\"selectedProject.name === ''\" src=\"../../assets/backgroundTop.png\">\n  <img class=\"imgTop\" *ngIf=\"selectedProject.name !== ''\" src=\"{{selectedProject.backgroundUrl}}\">\n  <div *ngIf=\"selectedProject.name === ''\" class=\"textBarTop\">Your Dashboard</div>\n  <div *ngIf=\"selectedProject.name !== ''\" class=\"textBarTop\">{{selectedProject.name}}</div>\n  <div *ngIf=\"selectedProject.name !== ''\" class=\"edit\" (click)=\"openFileLoader('fileLoader')\">\n    <input type=\"file\" id=\"fileLoader\" style=\"display: none\" (change)=\"editPicture($event)\">\n    <img class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n    Edit picture\n  </div>\n</div>\n<div *ngIf=\"selectedProject.name !== ''\" id=\"container\" class=\"mainContainer\">\n  <div class=\"selectMapChartSetting\">\n    <div *ngIf=\"selectOption == 'Chart'\" class=\"blockTextBorder blueText\">\n      <div>Chart</div>\n      <div class=\"blueBorder\"></div>\n    </div>\n    <div *ngIf=\"selectOption != 'Chart'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Chart'\">\n      <div>Chart</div>\n      <div class=\"borderUnderline\"></div>\n    </div>\n    <div *ngIf=\"selectOption == 'Map'\" class=\"blockTextBorder blueText\">\n      <div>Map</div>\n      <div class=\"blueBorder\"></div>\n    </div>\n    <div *ngIf=\"selectOption != 'Map'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Map'\">\n      <div>Map</div>\n      <div class=\"borderUnderline\"></div>\n    </div>\n    <div *ngIf=\"selectOption == 'Table'\" class=\"blockTextBorder blueText\">\n      <div>Table</div>\n      <div class=\"blueBorder\"></div>\n    </div>\n    <div *ngIf=\"selectOption != 'Table'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Table'\">\n      <div>Table</div>\n      <div class=\"borderUnderline\"></div>\n    </div>\n    <!--<div *ngIf=\"selectOption == 'Youtrack'\" class=\"blockTextBorder blueText\">-->\n      <!--<div>Youtrack</div>-->\n      <!--<div class=\"blueBorder\"></div>-->\n    <!--</div>-->\n    <!--<div *ngIf=\"selectOption != 'Youtrack'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Youtrack'\">-->\n      <!--<div>Youtrack</div>-->\n      <!--<div class=\"borderUnderline\"></div>-->\n    <!--</div>-->\n    <div *ngIf=\"selectOption == 'Settings'\" class=\"blockTextBorder blueText\">\n      <div>Settings</div>\n      <div class=\"blueBorder\"></div>\n    </div>\n    <div *ngIf=\"selectOption != 'Settings'\" class=\"blockTextBorder\" (click)=\"selectOption = 'Settings'\">\n      <div>Settings</div>\n      <div class=\"borderUnderline\"></div>\n    </div>\n  </div>\n  <chart *ngIf=\"selectOption == 'Chart'\" [project]=\"selectedProject\"></chart>\n  <map *ngIf=\"selectOption == 'Map'\" [project]=\"selectedProject\"></map>\n  <table *ngIf=\"selectOption == 'Table'\" [project]=\"selectedProject\"></table>\n  <youtrack *ngIf=\"selectOption == 'Youtrack'\" [project]=\"selectedProject\"></youtrack>\n  <change-config *ngIf=\"selectOption == 'Settings' && selectedProject.name != 'Global'\" [project]=\"selectedProject\"></change-config>\n  <change-config-admin *ngIf=\"selectOption == 'Settings' && selectedProject.name == 'Global'\" [project]=\"selectedProject\"></change-config-admin>\n</div>\n</div>\n<create-project *ngIf=\"selectOption == 'CreateProject'\"></create-project>\n"
 
 /***/ }),
 
@@ -995,6 +1023,17 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         console.log('init');
+        this.database.list("/privileges/" + this.afAuth.auth.currentUser.uid)
+            .subscribe(function (value) {
+            value.forEach(function (item) {
+                if (item.$key === 'root') {
+                    _this.admin = true;
+                }
+            });
+        });
+        this.afAuth.auth.currentUser.getIdToken(true).then(function (token) {
+            console.log(token);
+        });
         __WEBPACK_IMPORTED_MODULE_7_firebase_app__["storage"]().ref('backgroundDashboard/defaultBackground.png').getDownloadURL().then(function (data) {
             _this.imgBackgroundDefault = data;
             _this.imgBackground = data;
@@ -1005,6 +1044,7 @@ var DashboardComponent = (function () {
             console.log(data);
         });
         this.globalProject.name = 'Global';
+        this.globalProject.listUsers = [];
         this.database.list('/project-informations').subscribe(function (data) {
             _this.projects = [];
             data.forEach(function (item) {
@@ -1023,8 +1063,6 @@ var DashboardComponent = (function () {
                     return 0;
                 }
             });
-            _this.globalProject.listUsers = [];
-            _this.projects.forEach(function (it) { return _this.globalProject.listUsers.push(it.name); });
         });
     };
     DashboardComponent.prototype.openFileLoader = function (id) {
@@ -1058,6 +1096,7 @@ var DashboardComponent = (function () {
         newProject.hqChampionLastDate = info.hqChampionLastDate;
         newProject.fieldChampionName = info.fieldChampionName;
         newProject.fieldChampionLastDate = info.fieldChampionLastDate;
+        newProject.apiKey = info.apiKey;
         if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9_util__["isUndefined"])(info.hqChampionPicture)) {
             __WEBPACK_IMPORTED_MODULE_7_firebase_app__["storage"]().ref('profilePictureChampionDashboard/' + info.hqChampionPicture).getDownloadURL()
                 .then(function (data) {
@@ -1100,6 +1139,10 @@ var DashboardComponent = (function () {
     };
     DashboardComponent.prototype.seeGlobal = function () {
         this.selectProject(this.globalProject);
+    };
+    DashboardComponent.prototype.createProject = function () {
+        this.selectOption = 'CreateProject';
+        this.selectedProject = new __WEBPACK_IMPORTED_MODULE_2__class_project__["a" /* Project */]();
     };
     DashboardComponent.prototype.logout = function () {
         this.authService.isLoggedIn = null;
@@ -1156,6 +1199,7 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__project_error_project_error_component__ = __webpack_require__("../../../../../src/app/project-error/project-error.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__project_performance_project_performance_component__ = __webpack_require__("../../../../../src/app/project-performance/project-performance.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__user_info_user_info_component__ = __webpack_require__("../../../../../src/app/user-info/user-info.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__youtrack_youtrack_component__ = __webpack_require__("../../../../../src/app/youtrack/youtrack.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1163,6 +1207,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1212,7 +1257,8 @@ DashboardModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_24__multiple_select_multiple_select_component__["a" /* MultipleSelectComponent */],
             __WEBPACK_IMPORTED_MODULE_25__project_error_project_error_component__["a" /* ProjectErrorComponent */],
             __WEBPACK_IMPORTED_MODULE_26__project_performance_project_performance_component__["a" /* ProjectPerformanceComponent */],
-            __WEBPACK_IMPORTED_MODULE_27__user_info_user_info_component__["a" /* UserInfoComponent */]
+            __WEBPACK_IMPORTED_MODULE_27__user_info_user_info_component__["a" /* UserInfoComponent */],
+            __WEBPACK_IMPORTED_MODULE_28__youtrack_youtrack_component__["a" /* YoutrackComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
@@ -1446,7 +1492,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/general-info/general-information.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"containerGeneralInfo\">\n  <div>\n    <span *ngIf=\"displayGeneralInfo\" class=\"titleBlue\">General Information</span>\n    <span *ngIf=\"!displayGeneralInfo\" class=\"titleBlack\">General Information</span>\n    <i (click)=\"displayGeneralInfo = !displayGeneralInfo\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayGeneralInfo\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayGeneralInfo\" class=\"containerInfo\">\n    <div class=\"containerGeneral\">\n      <div class=\"subtitleBlue\">Project Manager: <span class=\"hide\">c</span></div>\n      <div *ngIf=\"!changeValue[0]\">\n        {{project.projectManager}}\n        <img (click)=\"changeValue[0] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div *ngIf=\"changeValue[0]\">\n        <input type=\"text\" [(ngModel)]=\"project.projectManager\" (focusout)=\"commit('projectManager', project.projectManager, 0)\" (keypress)=\"commitEnter($event.key, 'projectManager', project.projectManager, 0)\">\n        <img (click)=\"commit('projectManager', project.projectManager, 0)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"subtitleBlue\">Start date: <span class=\"hide\">c</span></div>\n      <div *ngIf=\"!changeValue[1]\">\n        {{project.dateStart | date}}\n        <img (click)=\"changeValue[1] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div *ngIf=\"changeValue[1]\">\n        <input type=\"date\" [ngModel]=\"project.dateStart | date:'yyyy-MM-dd'\" (ngModelChange)=\"project.dateStart = $event\"\n               (keypress)=\"commitEnter($event.key, 'dateStart', project.dateStart, 1)\"\n               (focusout)=\"commit('dateStart', project.dateStart, 1)\">\n        <img (click)=\"commit('dateStart', project.dateStart, 1)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"subtitleBlue\">End date: <span class=\"hide\">c</span></div>\n      <div *ngIf=\"!changeValue[2]\">\n        {{project.dateEnd | date}}\n        <img (click)=\"changeValue[2] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div *ngIf=\"changeValue[2]\">\n        <input type=\"date\" [ngModel]=\"project.dateEnd | date:'yyyy-MM-dd'\" (ngModelChange)=\"project.dateEnd = $event\"\n               (keypress)=\"commitEnter($event.key, 'dateEnd', project.dateEnd, 2)\"\n               (focusout)=\"commit('dateEnd', project.dateEnd, 2)\">\n        <img (click)=\"commit('dateEnd', project.dateEnd, 2)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"subtitleBlue\">Contract: <span class=\"hide\">c</span></div>\n      <div *ngIf=\"!changeValue[3]\">\n        {{project.contract}}\n        <img (click)=\"changeValue[3] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div *ngIf=\"changeValue[3]\">\n        <input type=\"text\" [(ngModel)]=\"project.contract\" (keypress)=\"commitEnter($event.key, 'contract', project.contract, 3)\"\n               (focusout)=\"commit('contract', project.contract, 3)\">\n        <img (click)=\"commit('contract', project.contract, 3)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n    </div>\n    <div class=\"containerDetail\">\n      <div class=\"subtitleBlue\" *ngIf=\"!changeValue[4]\">\n        Details:\n        <img (click)=\"changeValue[4] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"textDetail\" *ngIf=\"!changeValue[4]\">\n        {{project.details}}\n      </div>\n      <div class=\"subtitleBlue\" *ngIf=\"changeValue[4]\">\n        Details:\n        <img (click)=\"commit('details', project.details, 4)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"textDetail\" *ngIf=\"changeValue[4]\">\n        <textarea class=\"textAreaDetail\" [(ngModel)]=\"project.details\"\n                  (keypress)=\"commitEnter($event.key, 'details', project.details, 4)\"\n                  (focusout)=\"commit('details', project.details, 4)\">\n        </textarea>\n      </div>\n    </div>\n    <div class=\"containerPerson\">\n      <div class=\"hqChampion\">\n        <img class=\"imgPerson\" src=\"{{project.hqChampionPicture}}\">\n        <img (click)=\"openFileLoader('fileLoaderHq')\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n        <div class=\"subtitleBlue\"><span class=\"hide\">c</span> HQ champion:</div>\n        <div *ngIf=\"!changeValue[5]\">\n          <img (click)=\"changeValue[5] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          {{project.hqChampionName}}\n        </div>\n        <div *ngIf=\"changeValue[5]\">\n          <img (click)=\"commit('hqChampionName', project.hqChampionName, 5)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          <input type=\"text\" [(ngModel)]=\"project.hqChampionName\"\n                 (keypress)=\"commitEnter($event.key, 'hqChampionName', project.hqChampionName, 5)\"\n                 (focusout)=\"commit('hqChampionName', project.hqChampionName, 5)\">\n        </div>\n        <div class=\"subtitleBlue\"><span class=\"hide\">c</span> Last contact:</div>\n        <div *ngIf=\"!changeValue[6]\">\n          <img (click)=\"changeValue[6] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          {{project.hqChampionLastDate | date}}\n        </div>\n        <div *ngIf=\"changeValue[6]\">\n          <img (click)=\"commit('hqChampionLastDate', project.hqChampionLastDate, 6)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          <input type=\"date\" [ngModel]=\"project.hqChampionLastDate\" (ngModelChange)=\"project.hqChampionLastDate = $event\"\n                 (keypress)=\"commitEnter($event.key, 'hqChampionLastDate', project.hqChampionLastDate, 6)\"\n                 (focusout)=\"commit('hqChampionLastDate', project.hqChampionLastDate, 6)\">\n        </div>\n      </div>\n      <div class=\"fieldChampion\">\n        <img class=\"imgPerson\" src=\"{{project.fieldChampionPicture}}\">\n        <img (click)=\"openFileLoader('fileLoaderField')\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n        <div class=\"subtitleBlue\"><span class=\"hide\">c</span> Field champion:</div>\n        <div *ngIf=\"!changeValue[7]\">\n          <img (click)=\"changeValue[7] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          {{project.fieldChampionName}}\n        </div>\n        <div *ngIf=\"changeValue[7]\">\n          <img (click)=\"commit('fieldChampionName', project.fieldChampionName, 7)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          <input type=\"text\" [(ngModel)]=\"project.fieldChampionName\"\n                 (keypress)=\"commitEnter($event.key, 'fieldChampionName', project.fieldChampionName, 7)\"\n                 (focusout)=\"commit('fieldChampionName', project.fieldChampionName, 7)\">\n        </div>\n        <div class=\"subtitleBlue\"><span class=\"hide\">c</span> Last contact:</div>\n        <div *ngIf=\"!changeValue[8]\">\n          <img (click)=\"changeValue[8] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          {{project.fieldChampionLastDate | date}}\n        </div>\n        <div *ngIf=\"changeValue[8]\">\n          <img (click)=\"commit('hqChampionLastDate', project.fieldChampionLastDate, 8)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          <input type=\"date\" [ngModel]=\"project.fieldChampionLastDate\" (ngModelChange)=\"project.fieldChampionLastDate = $event\"\n                 (keypress)=\"commitEnter($event.key, 'fieldChampionLastDate', project.fieldChampionLastDate, 8)\"\n                 (focusout)=\"commit('fieldChampionLastDate', project.fieldChampionLastDate, 8)\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf='load'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n<input type=\"file\" id=\"fileLoaderHq\" style=\"display: none\" (change)=\"editPicture($event, 'hqChampionPicture')\">\n<input type=\"file\" id=\"fileLoaderField\" style=\"display: none\" (change)=\"editPicture($event, 'fieldChampionPicture')\">\n"
+module.exports = "<div class=\"containerGeneralInfo\">\n  <div>\n    <span *ngIf=\"displayGeneralInfo\" class=\"titleBlue\">General Information</span>\n    <span *ngIf=\"!displayGeneralInfo\" class=\"titleBlack\">General Information</span>\n    <i (click)=\"displayGeneralInfo = !displayGeneralInfo\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayGeneralInfo\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayGeneralInfo\" class=\"containerInfo\">\n    <div class=\"containerGeneral\">\n      <div class=\"subtitleBlue\">Project Manager: <span class=\"hide\">c</span></div>\n      <div *ngIf=\"!changeValue[0]\">\n        {{project.projectManager}}\n        <img (click)=\"changeValue[0] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div *ngIf=\"changeValue[0]\">\n        <input type=\"text\" [(ngModel)]=\"project.projectManager\" (focusout)=\"commit('projectManager', project.projectManager, 0)\" (keypress)=\"commitEnter($event.key, 'projectManager', project.projectManager, 0)\">\n        <img (click)=\"commit('projectManager', project.projectManager, 0)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"subtitleBlue\">Start date: <span class=\"hide\">c</span></div>\n      <div *ngIf=\"!changeValue[1]\">\n        {{project.dateStart | date}}\n        <img (click)=\"changeValue[1] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div *ngIf=\"changeValue[1]\">\n        <input type=\"date\" [ngModel]=\"project.dateStart | date:'yyyy-MM-dd'\" (ngModelChange)=\"project.dateStart = $event\"\n               (keypress)=\"commitEnter($event.key, 'dateStart', project.dateStart, 1)\"\n               (focusout)=\"commit('dateStart', project.dateStart, 1)\">\n        <img (click)=\"commit('dateStart', project.dateStart, 1)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"subtitleBlue\">End date: <span class=\"hide\">c</span></div>\n      <div *ngIf=\"!changeValue[2]\">\n        {{project.dateEnd | date}}\n        <img (click)=\"changeValue[2] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div *ngIf=\"changeValue[2]\">\n        <input type=\"date\" [ngModel]=\"project.dateEnd | date:'yyyy-MM-dd'\" (ngModelChange)=\"project.dateEnd = $event\"\n               (keypress)=\"commitEnter($event.key, 'dateEnd', project.dateEnd, 2)\"\n               (focusout)=\"commit('dateEnd', project.dateEnd, 2)\">\n        <img (click)=\"commit('dateEnd', project.dateEnd, 2)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"subtitleBlue\">Contract: <span class=\"hide\">c</span></div>\n      <div *ngIf=\"!changeValue[3]\">\n        {{project.contract}}\n        <img (click)=\"changeValue[3] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div *ngIf=\"changeValue[3]\">\n        <input type=\"text\" [(ngModel)]=\"project.contract\" (keypress)=\"commitEnter($event.key, 'contract', project.contract, 3)\"\n               (focusout)=\"commit('contract', project.contract, 3)\">\n        <img (click)=\"commit('contract', project.contract, 3)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"subtitleBlue\">ProjectId: <span class=\"hide\">c</span></div>\n        <div>\n          {{project.id}}\n          <span class=\"hide\">c</span>\n        </div>\n    </div>\n    <div class=\"containerDetail\">\n      <div class=\"subtitleBlue\" *ngIf=\"!changeValue[4]\">\n        Details:\n        <img (click)=\"changeValue[4] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"textDetail\" *ngIf=\"!changeValue[4]\">\n        {{project.details}}\n      </div>\n      <div class=\"subtitleBlue\" *ngIf=\"changeValue[4]\">\n        Details:\n        <img (click)=\"commit('details', project.details, 4)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n      </div>\n      <div class=\"textDetail\" *ngIf=\"changeValue[4]\">\n        <textarea class=\"textAreaDetail\" [(ngModel)]=\"project.details\"\n                  (keypress)=\"commitEnter($event.key, 'details', project.details, 4)\"\n                  (focusout)=\"commit('details', project.details, 4)\">\n        </textarea>\n      </div>\n    </div>\n    <div class=\"containerPerson\">\n      <div class=\"hqChampion\">\n        <img class=\"imgPerson\" src=\"{{project.hqChampionPicture}}\">\n        <img (click)=\"openFileLoader('fileLoaderHq')\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n        <div class=\"subtitleBlue\"><span class=\"hide\">c</span> HQ champion:</div>\n        <div *ngIf=\"!changeValue[5]\">\n          <img (click)=\"changeValue[5] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          {{project.hqChampionName}}\n        </div>\n        <div *ngIf=\"changeValue[5]\">\n          <img (click)=\"commit('hqChampionName', project.hqChampionName, 5)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          <input type=\"text\" [(ngModel)]=\"project.hqChampionName\"\n                 (keypress)=\"commitEnter($event.key, 'hqChampionName', project.hqChampionName, 5)\"\n                 (focusout)=\"commit('hqChampionName', project.hqChampionName, 5)\">\n        </div>\n        <div class=\"subtitleBlue\"><span class=\"hide\">c</span> Last contact:</div>\n        <div *ngIf=\"!changeValue[6]\">\n          <img (click)=\"changeValue[6] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          {{project.hqChampionLastDate | date}}\n        </div>\n        <div *ngIf=\"changeValue[6]\">\n          <img (click)=\"commit('hqChampionLastDate', project.hqChampionLastDate, 6)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          <input type=\"date\" [ngModel]=\"project.hqChampionLastDate\" (ngModelChange)=\"project.hqChampionLastDate = $event\"\n                 (keypress)=\"commitEnter($event.key, 'hqChampionLastDate', project.hqChampionLastDate, 6)\"\n                 (focusout)=\"commit('hqChampionLastDate', project.hqChampionLastDate, 6)\">\n        </div>\n      </div>\n      <div class=\"fieldChampion\">\n        <img class=\"imgPerson\" src=\"{{project.fieldChampionPicture}}\">\n        <img (click)=\"openFileLoader('fileLoaderField')\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n        <div class=\"subtitleBlue\"><span class=\"hide\">c</span> Field champion:</div>\n        <div *ngIf=\"!changeValue[7]\">\n          <img (click)=\"changeValue[7] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          {{project.fieldChampionName}}\n        </div>\n        <div *ngIf=\"changeValue[7]\">\n          <img (click)=\"commit('fieldChampionName', project.fieldChampionName, 7)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          <input type=\"text\" [(ngModel)]=\"project.fieldChampionName\"\n                 (keypress)=\"commitEnter($event.key, 'fieldChampionName', project.fieldChampionName, 7)\"\n                 (focusout)=\"commit('fieldChampionName', project.fieldChampionName, 7)\">\n        </div>\n        <div class=\"subtitleBlue\"><span class=\"hide\">c</span> Last contact:</div>\n        <div *ngIf=\"!changeValue[8]\">\n          <img (click)=\"changeValue[8] = true\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          {{project.fieldChampionLastDate | date}}\n        </div>\n        <div *ngIf=\"changeValue[8]\">\n          <img (click)=\"commit('hqChampionLastDate', project.fieldChampionLastDate, 8)\" class=\"pencilEdit\" src=\"../../assets/pencil.png\">\n          <input type=\"date\" [ngModel]=\"project.fieldChampionLastDate\" (ngModelChange)=\"project.fieldChampionLastDate = $event\"\n                 (keypress)=\"commitEnter($event.key, 'fieldChampionLastDate', project.fieldChampionLastDate, 8)\"\n                 (focusout)=\"commit('fieldChampionLastDate', project.fieldChampionLastDate, 8)\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf='load'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n<input type=\"file\" id=\"fileLoaderHq\" style=\"display: none\" (change)=\"editPicture($event, 'hqChampionPicture')\">\n<input type=\"file\" id=\"fileLoaderField\" style=\"display: none\" (change)=\"editPicture($event, 'fieldChampionPicture')\">\n"
 
 /***/ }),
 
@@ -1462,6 +1508,8 @@ module.exports = "<div class=\"containerGeneralInfo\">\n  <div>\n    <span *ngIf
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_storage__ = __webpack_require__("../../../../firebase/storage.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_storage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_storage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_util__ = __webpack_require__("../../../../util/util.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_util___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_util__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GeneralInformationComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1475,6 +1523,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by yoann on 18/07/2017.
  */
+
 
 
 
@@ -1496,8 +1545,9 @@ var GeneralInformationComponent = (function () {
     };
     GeneralInformationComponent.prototype.commit = function (field, val, index) {
         this.changeValue[index] = false;
-        this.database.object('/project-informations/' + this.project.id + '/' + field)
-            .set(val);
+        if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_util__["isUndefined"])(val))
+            this.database.object('/project-informations/' + this.project.id + '/' + field)
+                .set(val);
     };
     GeneralInformationComponent.prototype.commitEnter = function (key, field, val, index) {
         if (key === 'Enter') {
@@ -1577,9 +1627,8 @@ module.exports = "<div class=\"background\">\n  <h1 class=\"title\">Customized D
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__("../../../../angularfire2/auth.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app__ = __webpack_require__("../../../../firebase/app.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_app__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1594,31 +1643,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var LoginComponent = (function () {
-    //url = 'https://script-update-dot-simprints-dev.appspot.com/updateCounter';//'https://simprints-dev.appspot.com/key';
-    //apiKey = '708ba617e56449ec8163e820c390a91d0046c5f9dd344ae7ac9fbb9b0ae80d8c';
-    //token: string = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImUyOGU2MDQwOTI4OTA4ZTE2YzNjMThlNTc2ZDg1Y2QxNmEyNjRlZWEifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc2ltcHJpbnRzLWRldiIsIm5hbWUiOiJZb2FubiBCb3VyZ2VyeSIsInBpY3R1cmUiOiJodHRwczovL2xoNi5nb29nbGV1c2VyY29udGVudC5jb20vLWtLYzhfdXdZR0lrL0FBQUFBQUFBQUFJL0FBQUFBQUFBQUFvL01tNTRYTjdXMVF3L3Bob3RvLmpwZyIsImF1ZCI6InNpbXByaW50cy1kZXYiLCJhdXRoX3RpbWUiOjE1MDE3NzYwMTAsInVzZXJfaWQiOiJNdHQ1TTJ3MDl3VWQ3WjV0Q29BTnRhU0psc3kxIiwic3ViIjoiTXR0NU0ydzA5d1VkN1o1dENvQU50YVNKbHN5MSIsImlhdCI6MTUwMTc3NjAxMCwiZXhwIjoxNTAxNzc5NjEwLCJlbWFpbCI6InlvYW5uQHNpbXByaW50cy5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjExMTQ1MTI0MTQ0NjQ1Njk4MDYwNyJdLCJlbWFpbCI6WyJ5b2FubkBzaW1wcmludHMuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoiZ29vZ2xlLmNvbSJ9fQ.TPQsHwjrHZ8HkHfQ5koHJVFoSlqPPCmVgDERyTfTa4jebQCIFES5D5E2ferrGUxQNE86rRTGVr4k9Sf65rb7WWo07CS3LjLbk9oPES7XwsCrRwB6RzYjfs8XKtMHnges2-9gMBiMNPbsBMc-xOUK53GgeMDj5Yr1dEW3xsaIAtTHdnrUznPekKHiFzfAZgm1tDS8CYysm6SMxSoFbwey5BDx0jV3EJzFeWCv4DYO-ez7A0fKT4QkfYRHBxdZ7Uscd2x48GiojogAmI81w20yAsxmr0Nj_aL2EBP7jSGsunsy8qku2Y3SSm9NR3LxU1ujdfJ18527e4_K3xyCig4gsg';
-    //img: string;
-    function LoginComponent(afAuth, router, http) {
+    function LoginComponent(afAuth, router) {
         this.afAuth = afAuth;
         this.router = router;
-        this.http = http;
         this.load = false;
     }
     LoginComponent.prototype.login = function () {
         var _this = this;
-        // firebase.storage().ref('FullSizeRenderpg').getDownloadURL().then(data => {
-        //   console.log(data);
-        //   this.img = data;
-        // }).catch(() => {
-        // });
         this.load = true;
-        this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_4_firebase_app__["auth"].GoogleAuthProvider())
+        this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_3_firebase_app__["auth"].GoogleAuthProvider())
             .then(function () {
             _this.load = false;
             return _this.router.navigate(['/dashboard']);
-            // this.checkUser();
         });
     };
     return LoginComponent;
@@ -1628,10 +1665,10 @@ LoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/login.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["f" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["f" /* Http */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["b" /* AngularFireAuth */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["d" /* Router */]) === "function" && _b || Object])
 ], LoginComponent);
 
-var _a, _b, _c;
+var _a, _b;
 //# sourceMappingURL=login.component.js.map
 
 /***/ }),
@@ -1644,7 +1681,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".containerMap{\n  position: absolute;\n  left: 2vw;\n  top: 35vh;\n  padding-bottom: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-top: 15px;\n}\n\n.filterData{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  width: 100%;\n}\n\n.imgClock{\n  width: 20px;\n  height: 20px;\n  margin-top: 2px;\n}\n\n.textFilter{\n  margin-top: 3px;\n  margin-left: 5px;\n}\n\n.dateInput{\n  margin-left: 5px;\n  height: 28px;\n  width: 130px;\n}\n\n.buttonFilter{\n  height: 28px;\n  margin-left: 5px;\n  background-image: linear-gradient(to right, rgb(247, 148, 32), rgb(227, 29, 137));\n  border: none;\n  width: 80px;\n}\n\n.containerMapInfo{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-top: 10px;\n}\n\n.map{\n\twidth: 60vw;\n\theight: 40vh;\n  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);\n  z-index: 1;\n}\n\n.info{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: white;\n  margin-left: 10px;\n  width: 100%;\n  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);\n}\n\n.title{\n  color: rgb(71, 139, 202);\n  font-size: 130%;\n  height: 5vh;\n  margin-left: 5px;\n}\n\n.borderSeparate{\n  background-color: black;\n  height: 1px;\n  width: 100%;\n}\n\n.listData{\n  padding-left: 5px;\n  height: 35vh;\n  overflow-y: scroll;\n}\n\n.data{\n  margin-bottom: 5px;\n  margin-right: 10px;\n  height: 38px;\n}\n\n.buttonReplay{\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  height: 15vh;\n  margin-top: 10px;\n  padding-top: 10px;\n  padding-right: 10px;\n  padding-left: 10px;\n  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);\n}\n\n.element{\n  width: 20%;\n  text-align: center;\n}\n\n.line{\n  background-color: black;\n  height: 1px;\n}\n\n.number{\n  font-size: 300%;\n  color: rgb(129, 130, 132);\n  cursor: default;\n}\n\n.lastEvent{\n  color: rgb(129, 130, 132);\n}\n\n.triangle{\n  position: relative;\n  top: -11px;\n  color: rgb(71, 139, 202);\n  font-size: 17px;\n}\n\n.lineClick{\n  background-color: black;\n  height: 1px;\n  position: relative;\n  top: -19px;\n}\n\n.numberClick{\n  font-size: 300%;\n  color: rgb(71, 139, 202);\n  position: relative;\n  top: -19px;\n}\n\n.lastEventClick{\n  color: rgb(71, 139, 202);\n  position: relative;\n  top: -19px;\n}\n", ""]);
+exports.push([module.i, ".containerMap{\n  position: absolute;\n  left: 2vw;\n  padding-bottom: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-top: 15px;\n}\n\n.filterData{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  width: 100%;\n}\n\n.imgClock{\n  width: 20px;\n  height: 20px;\n  margin-top: 2px;\n}\n\n.textFilter{\n  margin-top: 3px;\n  margin-left: 5px;\n}\n\n.dateInput{\n  margin-left: 5px;\n  height: 28px;\n  width: 130px;\n}\n\n.buttonFilter{\n  height: 28px;\n  margin-left: 5px;\n  background-image: linear-gradient(to right, rgb(247, 148, 32), rgb(227, 29, 137));\n  border: none;\n  width: 80px;\n}\n\n.containerMapInfo{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  margin-top: 10px;\n}\n\n.map{\n\twidth: 60vw;\n\theight: 40vh;\n  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);\n  z-index: 1;\n}\n\n.info{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  background-color: white;\n  margin-left: 10px;\n  width: 17vw;\n  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);\n}\n\n.title{\n  color: rgb(71, 139, 202);\n  font-size: 130%;\n  height: 5vh;\n  margin-left: 5px;\n}\n\n.borderSeparate{\n  background-color: black;\n  height: 1px;\n  width: 100%;\n}\n\n.listData{\n  padding-left: 5px;\n  height: 35vh;\n  overflow-y: scroll;\n}\n\n.data{\n  margin-bottom: 10px;\n  margin-right: 10px;\n  min-height: 40px;\n}\n\n.userId{\n  padding-top: 10px;\n}\n\n.borderEvent {\n  background-color: black;\n  height: 1px;\n  width: 80%;\n  margin-left: 10px;\n  margin-right: 10px;\n}\n\n.buttonReplay{\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  height: 15vh;\n  margin-top: 10px;\n  padding-top: 10px;\n  padding-right: 10px;\n  padding-left: 10px;\n  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);\n}\n\n.element{\n  width: 20%;\n  text-align: center;\n}\n\n.line{\n  background-color: black;\n  height: 1px;\n}\n\n.number{\n  font-size: 300%;\n  color: rgb(129, 130, 132);\n  cursor: default;\n}\n\n.lastEvent{\n  color: rgb(129, 130, 132);\n}\n\n.triangle{\n  position: relative;\n  top: -11px;\n  color: rgb(71, 139, 202);\n  font-size: 17px;\n}\n\n.lineClick{\n  background-color: black;\n  height: 1px;\n  position: relative;\n  top: -19px;\n}\n\n.numberClick{\n  font-size: 300%;\n  color: rgb(71, 139, 202);\n  position: relative;\n  top: -19px;\n}\n\n.lastEventClick{\n  color: rgb(71, 139, 202);\n  position: relative;\n  top: -19px;\n}\n", ""]);
 
 // exports
 
@@ -1657,7 +1694,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/map/map.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='project' class=\"containerMap\">\n  <div class=\"filterData\">\n    <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n    <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n    <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n    <multiple-select *ngIf=\"project.name !== 'Global'\" [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    <span class=\"textFilter\">Activity filter:</span>\n    <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n    <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n  </div>\n  <div class=\"containerMapInfo\">\n    <agm-map class=\"map\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n      <agm-marker *ngFor=\"let session of sessionMap\"\n                  [latitude]=\"session.latitude\"\n                  [longitude]=\"session.longitude\"\n                  [iconUrl]=\"session.iconUrl\">\n      </agm-marker>\n    </agm-map>\n    <div class=\"info\">\n      <div class=\"title\">\n        Activity\n      </div>\n      <div class=\"borderSeparate\"></div>\n      <div class=\"listData\" #listData (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions\" class=\"data\">\n          <div>{{session['userId']}}</div>\n          <div>\n            {{session['callout']}}\n            {{session['serverSessionStartTime'] | date}}\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"buttonReplay\">\n    <div class=\"element\" *ngIf=\"replayActif[0]\">\n        <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        10\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[0]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(10, 0)\">\n        10\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[1]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        25\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[1]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(25, 1)\">\n        25\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[2]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        50\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[2]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(50, 2)\">\n        50\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[3]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        75\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[3]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(75, 3)\">\n        75\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[4]\">\n      <i class=\"fa fa-caret-up triangle\" aria-hidden=\"true\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        100\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[4]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(100, 4)\">\n        100\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
+module.exports = "<div *ngIf='project' class=\"containerMap\">\n  <div class=\"filterData\">\n    <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n    <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n    <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n    <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n    <multiple-select *ngIf=\"project.name !== 'Global'\" [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    <span class=\"textFilter\">Activity filter:</span>\n    <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n    <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n  </div>\n  <div class=\"containerMapInfo\">\n    <agm-map class=\"map\" [latitude]=\"lat\" [longitude]=\"lng\" [zoom]=\"zoom\">\n      <agm-marker *ngFor=\"let session of sessionMap\"\n                  [latitude]=\"session.latitude\"\n                  [longitude]=\"session.longitude\"\n                  [iconUrl]=\"session.iconUrl\">\n      </agm-marker>\n    </agm-map>\n    <div class=\"info\">\n      <div class=\"title\">\n        Activity\n      </div>\n      <div class=\"borderSeparate\"></div>\n      <div class=\"listData\" #listData (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions\" class=\"data\">\n          <div>{{session['userId']}}</div>\n          <div>\n            {{session['callout']}}\n            {{session['serverSessionStartTime'] | date}}\n          </div>\n          <div class=\"borderEvent\"></div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"buttonReplay\">\n    <div class=\"element\" *ngIf=\"replayActif[0]\">\n        <i class=\"fa fa-caret-up triangle\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        10\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[0]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(10, 0)\">\n        10\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[1]\">\n      <i class=\"fa fa-caret-up triangle\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        25\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[1]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(25, 1)\">\n        25\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[2]\">\n      <i class=\"fa fa-caret-up triangle\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        50\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[2]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(50, 2)\">\n        50\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[3]\">\n      <i class=\"fa fa-caret-up triangle\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        75\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[3]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(75, 3)\">\n        75\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"replayActif[4]\">\n      <i class=\"fa fa-caret-up triangle\"></i>\n      <div class=\"lineClick\">\n\n      </div>\n      <div class=\"numberClick\">\n        100\n      </div>\n      <div class=\"lastEventClick\">\n        Last events\n      </div>\n    </div>\n    <div class=\"element\" *ngIf=\"!replayActif[4]\">\n      <div class=\"line\">\n\n      </div>\n      <div class=\"number\" (click)=\"launchReplay(100, 4)\">\n        100\n      </div>\n      <div class=\"lastEvent\">\n        Last events\n      </div>\n    </div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
 
 /***/ }),
 
@@ -1696,7 +1733,7 @@ var MapComponent = (function () {
         this.nbValToDisplay = 100;
         this.finish = false;
         this.loadVal = false;
-        this.heightChildren = 38 + 5; //+5 margin-bottom
+        this.heightChildren = 40 + 10; //+10 margin-bottom
     }
     MapComponent.prototype.ngOnChanges = function () {
         this.sessions = [];
@@ -1725,7 +1762,6 @@ var MapComponent = (function () {
             nb++;
         if (reset)
             this.sessions = [];
-        console.log(nb);
         this.database.list(url, {
             query: {
                 orderByChild: 'serverSessionStartTime',
@@ -1756,6 +1792,7 @@ var MapComponent = (function () {
                     }
                 }
             });
+            console.log(nbPush);
             tmpSession.reverse();
             tmpSession.forEach(function (it) { return _this.sessions.push(it); });
             if (nbGet < nb) {
@@ -1909,6 +1946,13 @@ var MapComponent = (function () {
                 return directory + "iconUpdate.png";
         }
     };
+    MapComponent.prototype.changeDate = function () {
+        if (new Date(this.dateEnd) < new Date(this.dateStart)) {
+            var tmp = this.dateStart;
+            this.dateStart = this.dateEnd;
+            this.dateEnd = tmp;
+        }
+    };
     return MapComponent;
 }());
 __decorate([
@@ -1941,7 +1985,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".titleButton{\n  border: 1px solid rgb(88, 88, 90);\n  min-height: 28px;\n  width: 120px;\n  margin-left: 5px;\n  color: rgb(88, 88, 90);\n  background-color: white;\n  text-align: center;\n}\n\n.title{\n  margin-top: 5px;\n}\n\n.sizeArrow{\n  margin-right: 4px;\n  margin-top: 8px;\n  float: right;\n  font-size: 12px;\n}\n\n.valueDisplay{\n  border: 1px solid rgb(88, 88, 90);\n  margin-left: 5px;\n  height: 100px;\n  overflow-y: scroll;\n  padding-left: 5px;\n  background-color: white;\n  position: absolute;\n  width: 120px;\n  z-index: 10;\n}\n\n.lineChecked{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n}\n\n.iconCheck{\n  position: relative;\n  top: -3px;\n}\n\n.checked{\n  font-size: 12px;\n  border: 1px solid grey;\n  width: 12px;\n  height: 12px;\n  margin-top: 3px;\n  margin-left: 3px;\n  margin-right: 3px;\n}\n", ""]);
+exports.push([module.i, ".titleButton{\n  border: 1px solid rgb(88, 88, 90);\n  min-height: 28px;\n  width: 120px;\n  margin-left: 5px;\n  color: rgb(88, 88, 90);\n  background-color: white;\n  text-align: center;\n}\n\n.title{\n  margin-top: 5px;\n}\n\n.sizeArrow{\n  margin-right: 4px;\n  margin-top: 8px;\n  float: right;\n  font-size: 12px;\n}\n\n.inputSearch{\n  width: 90px;\n}\n\n.iconSearch{\n  margin-left: 5px;\n}\n\n.valueDisplay{\n  border: 1px solid rgb(88, 88, 90);\n  margin-left: 5px;\n  height: 100px;\n  overflow-y: scroll;\n  padding-left: 5px;\n  background-color: white;\n  position: absolute;\n  width: 120px;\n  z-index: 10;\n}\n\n.lineChecked{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n}\n\n.iconCheck{\n  position: relative;\n  top: -3px;\n}\n\n.checked{\n  font-size: 12px;\n  border: 1px solid grey;\n  width: 12px;\n  height: 12px;\n  margin-top: 3px;\n  margin-left: 3px;\n  margin-right: 3px;\n}\n", ""]);
 
 // exports
 
@@ -1954,7 +1998,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/multiple-select/multiple-select.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div (click)=\"displayVal = !displayVal\" class=\"titleButton\">\n  <span *ngIf=\"displayTitle\" class=\"title\">{{title}}</span>\n  <i class=\"fa fa-caret-down sizeArrow\" aria-hidden=\"true\"></i>\n</div>\n<div *ngIf=\"displayVal\" class=\"valueDisplay\">\n  <div *ngIf=\"!choose\">\n    <div class=\"lineChecked\" (click)=\"checkAll()\">\n      <div class=\"checked\">\n        <i *ngIf=\"checkAllVal === true\" class=\"fa fa-check iconCheck\"></i>\n      </div>\n      <span>All</span>\n    </div>\n    <div *ngFor='let item of list; let i = index'>\n      <div class=\"lineChecked\" (click)=\"checked(i)\">\n        <div class=\"checked\">\n          <i *ngIf=\"listChecked[i] === true\" class=\"fa fa-check iconCheck\"></i>\n        </div>\n        <span>{{item}}</span>\n      </div>\n    </div>\n  </div>\n  <div *ngIf=\"choose\">\n    <div class=\"lineChecked\" (click)=\"changeChoose('All')\">\n      <div class=\"checked\">\n        <i *ngIf=\"choose[0] === 'All'\" class=\"fa fa-check iconCheck\"></i>\n      </div>\n      <span>All</span>\n    </div>\n    <div *ngFor='let item of list; let i = index'>\n      <div class=\"lineChecked\" (click)=\"changeChoose(list[i])\">\n        <div class=\"checked\">\n          <i *ngIf=\"choose[0] === list[i] || choose[0] === 'All'\" class=\"fa fa-check iconCheck\"></i>\n        </div>\n        <span>{{item}}</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<div (click)=\"displayVal = !displayVal\" class=\"titleButton\">\n  <span *ngIf=\"displayTitle\" class=\"title\">{{title}}</span>\n  <i class=\"fa fa-caret-down sizeArrow\"></i>\n</div>\n<div *ngIf=\"displayVal\" class=\"valueDisplay\">\n  <input class=\"inputSearch\" [(ngModel)]=\"search\" (keyup)=\"searchValue()\"><i class=\"fa fa-search iconSearch\"></i>\n  <div *ngIf=\"!choose\">\n    <div class=\"lineChecked\" (click)=\"checkAll()\">\n      <div class=\"checked\">\n        <i *ngIf=\"checkAllVal === true\" class=\"fa fa-check iconCheck\"></i>\n      </div>\n      <span>All</span>\n    </div>\n    <div *ngFor='let item of listPrivateObj'>\n      <div class=\"lineChecked\" (click)=\"checked(item.index)\">\n        <div class=\"checked\">\n          <i *ngIf=\"listChecked[item.index] === true\" class=\"fa fa-check iconCheck\"></i>\n        </div>\n        <span>{{item.value}}</span>\n      </div>\n    </div>\n  </div>\n  <div *ngIf=\"choose\">\n    <div class=\"lineChecked\" (click)=\"changeChoose('All')\">\n      <div class=\"checked\">\n        <i *ngIf=\"choose[0] === 'All'\" class=\"fa fa-check iconCheck\"></i>\n      </div>\n      <span>All</span>\n    </div>\n    <div *ngFor='let item of listPrivate; let i = index'>\n      <div class=\"lineChecked\" (click)=\"changeChoose(listPrivate[i])\">\n        <div class=\"checked\">\n          <i *ngIf=\"choose[0] === listPrivate[i] || choose[0] === 'All'\" class=\"fa fa-check iconCheck\"></i>\n        </div>\n        <span>{{item}}</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1982,8 +2026,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MultipleSelectComponent = (function () {
     function MultipleSelectComponent() {
+        this.changeValue = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.search = '';
         this.displayVal = false;
         this.checkAllVal = false;
+        this.listPrivate = [];
+        this.listPrivateObj = [];
     }
     MultipleSelectComponent.prototype.ngOnInit = function () {
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_util__["isUndefined"])(this.choose)) {
@@ -1991,11 +2039,16 @@ var MultipleSelectComponent = (function () {
             for (var i = 1; i < this.listChecked.length; i++) {
                 this.checkAllVal = this.checkAllVal && this.listChecked[i];
             }
+            for (var i in this.list)
+                this.listPrivateObj.push({ value: this.list[i], index: i });
             if (this.displayTitle)
                 this.changeTitle();
         }
-        else
+        else {
+            for (var i in this.list)
+                this.listPrivate.push(this.list[i]);
             this.changeChoose('All');
+        }
     };
     MultipleSelectComponent.prototype.checked = function (index) {
         this.listChecked[index] = !this.listChecked[index];
@@ -2005,6 +2058,8 @@ var MultipleSelectComponent = (function () {
         }
         if (this.displayTitle)
             this.changeTitle();
+        this.displayVal = false;
+        this.changeValue.emit();
     };
     MultipleSelectComponent.prototype.changeTitle = function () {
         if (this.checkAllVal)
@@ -2024,10 +2079,30 @@ var MultipleSelectComponent = (function () {
         }
         if (this.displayTitle)
             this.changeTitle();
+        this.displayVal = false;
+        this.changeValue.emit();
     };
     MultipleSelectComponent.prototype.changeChoose = function (val) {
         this.title = val;
         this.choose[0] = val;
+        this.displayVal = false;
+        this.changeValue.emit();
+    };
+    MultipleSelectComponent.prototype.searchValue = function () {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_util__["isUndefined"])(this.choose)) {
+            this.listPrivateObj = [];
+            for (var i in this.list) {
+                if (this.list[i].search(this.search) !== -1)
+                    this.listPrivateObj.push({ value: this.list[i], index: i });
+            }
+        }
+        else {
+            this.listPrivate = [];
+            for (var i in this.list) {
+                if (this.list[i].search(this.search) !== -1)
+                    this.listPrivate.push(this.list[i]);
+            }
+        }
     };
     return MultipleSelectComponent;
 }());
@@ -2047,6 +2122,10 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Boolean)
 ], MultipleSelectComponent.prototype, "displayTitle", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+    __metadata("design:type", Object)
+], MultipleSelectComponent.prototype, "changeValue", void 0);
 MultipleSelectComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'multiple-select',
@@ -2080,7 +2159,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/project-error/project-error.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ngIf=\"displayProjectError\" class=\"titleBlue\">Project Errors</span>\n    <span *ngIf=\"!displayProjectError\" class=\"titleBlack\">Project Errors</span>\n    <i (click)=\"displayProjectError = !displayProjectError; applyFilter();\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectError\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectError\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <button (click)=\"applyFilter()\" class=\"buttonFilter\">Update</button>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"blueError\">\n        <div class=\"textBlueError\">\n          Blue errors\n        </div>\n        <div class=\"barAndValueBlueError\">\n          <div class=\"barBlueError\"></div>\n          <div class=\"valueBlueError\">{{blueErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"yellowError\">\n        <div class=\"textYellowError\">\n          Yellow errors\n        </div>\n        <div class=\"barAndValueYellowError\">\n          <div class=\"barYellowError\"></div>\n          <div class=\"valueYellowError\">{{yellowErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"redError\">\n        <div class=\"textRedError\">\n          Red errors\n        </div>\n        <div class=\"barAndValueRedError\">\n          <div class=\"barRedError\"></div>\n          <div class=\"valueRedError\">{{redErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"greyError\">\n        <div class=\"textGreyError\">\n          Grey errors\n        </div>\n        <div class=\"barAndValueGreyError\">\n          <div class=\"barGreyError\"></div>\n          <div class=\"valueGreyError\">{{greyErrorCount}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ngIf=\"displayProjectError\" class=\"titleBlue\">Project Errors</span>\n    <span *ngIf=\"!displayProjectError\" class=\"titleBlack\">Project Errors</span>\n    <i (click)=\"displayProjectError = !displayProjectError; applyFilter();\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectError\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectError\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"blueError\">\n        <div class=\"textBlueError\">\n          Blue errors\n        </div>\n        <div class=\"barAndValueBlueError\">\n          <div class=\"barBlueError\"></div>\n          <div class=\"valueBlueError\">{{blueErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"yellowError\">\n        <div class=\"textYellowError\">\n          Yellow errors\n        </div>\n        <div class=\"barAndValueYellowError\">\n          <div class=\"barYellowError\"></div>\n          <div class=\"valueYellowError\">{{yellowErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"redError\">\n        <div class=\"textRedError\">\n          Red errors\n        </div>\n        <div class=\"barAndValueRedError\">\n          <div class=\"barRedError\"></div>\n          <div class=\"valueRedError\">{{redErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"greyError\">\n        <div class=\"textGreyError\">\n          Grey errors\n        </div>\n        <div class=\"barAndValueGreyError\">\n          <div class=\"barGreyError\"></div>\n          <div class=\"valueGreyError\">{{greyErrorCount}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2128,7 +2207,14 @@ var ProjectErrorComponent = (function () {
         this.lineChartType = 'line';
         this.lineChartOptions = {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
         };
     }
     ProjectErrorComponent.prototype.ngOnChanges = function () {
@@ -2268,30 +2354,36 @@ var ProjectErrorComponent = (function () {
         var _this = this;
         var dateArray = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].computeDateArray(this.dateStart, this.dateEnd);
         this.lineChartData = [];
+        var max = 0;
         if (this.blueErrorCount !== 0) {
             var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listBlueError);
+            max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Blue errors', borderColor: 'rgb(39, 170, 225)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.yellowErrorCount !== 0) {
             var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listYellowError);
+            max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Yellow errors', borderColor: 'rgb(247, 138, 32)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.redErrorCount !== 0) {
             var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listRedError);
+            max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Red errors', borderColor: 'rgb(231, 95, 156)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.greyErrorCount !== 0) {
             var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listGreyError);
+            max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Grey errors', borderColor: 'rgb(116, 77, 155)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
+        this.lineChartOptions['scales']['yAxes'][0]['ticks']['max'] = max + 1;
         if (this.lineChartData.length === 0)
             this.displayChart = false;
         else {
@@ -2299,6 +2391,7 @@ var ProjectErrorComponent = (function () {
                 if (_this.chart && _this.chart.chart && _this.chart.chart.config) {
                     _this.chart.chart.config.data.labels = dateArray;
                     _this.chart.chart.config.data.datasets = _this.lineChartData;
+                    _this.chart.chart.options.scales.yAxes[0].ticks.max = max + 1;
                     _this.chart.chart.update();
                 }
             });
@@ -2322,6 +2415,14 @@ var ProjectErrorComponent = (function () {
     };
     ProjectErrorComponent.prototype.applyFilter = function () {
         this.loadData();
+    };
+    ProjectErrorComponent.prototype.changeDate = function () {
+        if (new Date(this.dateEnd) < new Date(this.dateStart)) {
+            var tmp = this.dateStart;
+            this.dateStart = this.dateEnd;
+            this.dateEnd = tmp;
+        }
+        this.applyFilter();
     };
     return ProjectErrorComponent;
 }());
@@ -2376,7 +2477,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/project-impact/project-impact.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ngIf=\"displayProjectImpact\" class=\"titleBlue\">Project Impact</span>\n    <span *ngIf=\"!displayProjectImpact\" class=\"titleBlack\">Project Impact</span>\n    <i (click)=\"displayProjectImpact = !displayProjectImpact; applyFilter()\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectImpact\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectImpact\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" [displayTitle]=\"true\" [list]=\"listActivity\"></multiple-select>\n      <button (click)=\"applyFilter()\" class=\"buttonFilter\">Update</button>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"enrollment\">\n        <div class=\"textEnrollment\">\n          Enrollments\n        </div>\n        <div class=\"barAndValueEnrollment\">\n          <div class=\"barEnrollment\"></div>\n          <div class=\"valueEnrollment\">{{patientCount}}</div>\n        </div>\n      </div>\n      <div class=\"identification\">\n        <div class=\"textIdentification\">\n          Identifications\n        </div>\n        <div class=\"barAndValueIdentification\">\n          <div class=\"barIdentification\"></div>\n          <div class=\"valueIdentification\">{{idCount}}</div>\n        </div>\n      </div>\n      <div class=\"verification\">\n        <div class=\"textVerification\">\n          Verifications\n        </div>\n        <div class=\"barAndValueVerification\">\n          <div class=\"barVerification\"></div>\n          <div class=\"valueVerification\">{{verifyCount}}</div>\n        </div>\n      </div>\n      <div class=\"user\">\n        <div class=\"textUser\">\n          Users\n        </div>\n        <div class=\"barAndValueUser\">\n          <div class=\"barUser\"></div>\n          <div class=\"valueUser\">{{userCount}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ngIf=\"displayProjectImpact\" class=\"titleBlue\">Project Impact</span>\n    <span *ngIf=\"!displayProjectImpact\" class=\"titleBlack\">Project Impact</span>\n    <i (click)=\"displayProjectImpact = !displayProjectImpact; applyFilter()\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectImpact\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectImpact\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [list]=\"listActivity\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"enrollment\">\n        <div class=\"textEnrollment\">\n          Enrollments\n        </div>\n        <div class=\"barAndValueEnrollment\">\n          <div class=\"barEnrollment\"></div>\n          <div class=\"valueEnrollment\">{{patientCount}}</div>\n        </div>\n      </div>\n      <div class=\"identification\">\n        <div class=\"textIdentification\">\n          Identifications\n        </div>\n        <div class=\"barAndValueIdentification\">\n          <div class=\"barIdentification\"></div>\n          <div class=\"valueIdentification\">{{idCount}}</div>\n        </div>\n      </div>\n      <div class=\"verification\">\n        <div class=\"textVerification\">\n          Verifications\n        </div>\n        <div class=\"barAndValueVerification\">\n          <div class=\"barVerification\"></div>\n          <div class=\"valueVerification\">{{verifyCount}}</div>\n        </div>\n      </div>\n      <div class=\"user\">\n        <div class=\"textUser\">\n          Users\n        </div>\n        <div class=\"barAndValueUser\">\n          <div class=\"barUser\"></div>\n          <div class=\"valueUser\">{{userCount}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2425,7 +2526,14 @@ var ProjectImpactComponent = (function () {
         this.lineChartType = 'line';
         this.lineChartOptions = {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
         };
     }
     ProjectImpactComponent.prototype.ngOnChanges = function () {
@@ -2510,30 +2618,36 @@ var ProjectImpactComponent = (function () {
         var _this = this;
         var dateArray = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].computeDateArray(this.dateStart, this.dateEnd);
         this.lineChartData = [];
+        var max = 0;
         if (this.patientCount !== 0) {
             var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[1]));
+            max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Enrollments', borderColor: 'rgb(231, 95, 156)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.idCount !== 0) {
             var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[0]));
+            max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Identifications', borderColor: 'rgb(39, 170, 225)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.chooseUser[0] === 'All') {
             var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[2]));
+            max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Users', borderColor: 'rgb(247, 138, 32)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.verifyCount !== 0) {
             var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[3]));
+            max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Verifications', borderColor: 'rgb(139, 197, 68)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
+        this.lineChartOptions['scales']['yAxes'][0]['ticks']['max'] = max + 1;
         //noinspection RedundantIfStatementJS
         if (this.verifyCount === 0 && this.idCount === 0 && this.patientCount === 0)
             this.displayChart = false;
@@ -2543,6 +2657,7 @@ var ProjectImpactComponent = (function () {
             if (_this.chart && _this.chart.chart && _this.chart.chart.config) {
                 _this.chart.chart.config.data.labels = dateArray;
                 _this.chart.chart.config.data.datasets = _this.lineChartData;
+                _this.chart.chart.options.scales.yAxes[0].ticks.max = max + 1;
                 _this.chart.chart.update();
             }
         });
@@ -2561,6 +2676,14 @@ var ProjectImpactComponent = (function () {
     };
     ProjectImpactComponent.prototype.applyFilter = function () {
         this.loadData();
+    };
+    ProjectImpactComponent.prototype.changeDate = function () {
+        if (new Date(this.dateEnd) < new Date(this.dateStart)) {
+            var tmp = this.dateStart;
+            this.dateStart = this.dateEnd;
+            this.dateEnd = tmp;
+        }
+        this.applyFilter();
     };
     return ProjectImpactComponent;
 }());
@@ -2615,7 +2738,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/project-performance/project-performance.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"containerProjectPerformance\">\n  <div>\n    <span *ngIf=\"displayProjectPerformance\" class=\"titleBlue\">Project Performance - {{title}}</span>\n    <span *ngIf=\"!displayProjectPerformance\" class=\"titleBlack\">Project Performance - {{title}}</span>\n    <i (click)=\"displayProjectPerformance = !displayProjectPerformance; applyFilter();\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectPerformance\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectPerformance\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <button (click)=\"applyFilter()\" class=\"buttonFilter\">Update</button>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"dailyUser\">\n        <div class=\"textDailyUser\">\n          DAUs\n        </div>\n        <div class=\"barAndValueDailyUser\">\n          <div class=\"barDailyUser\"></div>\n          <div class=\"valueDailyUser\">{{dailyUser}}</div>\n        </div>\n      </div>\n      <div class=\"monthlyUser\">\n        <div class=\"textMonthlyUser\">\n          MAUs\n        </div>\n        <div class=\"barAndValueMonthlyUser\">\n          <div class=\"barMonthlyUser\"></div>\n          <div class=\"valueMonthlyUser\">{{monthlyUser}}</div>\n        </div>\n      </div>\n      <div class=\"matchSpeed\">\n        <div class=\"textMatchSpeed\">\n          Avg. Match Speed\n        </div>\n        <div class=\"barAndValueMatchSpeed\">\n          <div class=\"barMatchSpeed\"></div>\n          <div class=\"valueMatchSpeed\">{{matchSpeed | number : '1.1-3'}}s</div>\n        </div>\n      </div>\n      <div class=\"accuracy\">\n        <div class=\"textAccuracy\" *ngIf=\"type === 'IDENTIFY'\">\n          Avg. Accuracy\n        </div>\n        <div class=\"textAccuracy\" *ngIf=\"type === 'VERIFY'\">\n          Percent of yes\n        </div>\n        <div class=\"barAndValueAccuracy\">\n          <div class=\"barAccuracy\"></div>\n          <div class=\"valueAccuracy\">{{accuracy | number : '1.0-2'}}%</div>\n        </div>\n      </div>\n      <div class=\"number\">\n        <div class=\"textNumber\" *ngIf=\"type === 'IDENTIFY'\">\n          Id's callback\n        </div>\n        <div class=\"textNumber\" *ngIf=\"type === 'VERIFY'\">\n          Verification's number\n        </div>\n        <div class=\"barAndValueNumber\">\n          <div class=\"barNumber\"></div>\n          <div class=\"valueNumber\">{{total}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartDataAccuracy\"\n              [labels]=\"lineChartLabelsAccuracy\"\n              [options]=\"lineChartOptionsAccuracy\"\n              [colors]=\"lineChartColorAccuracy\"\n              [legend]=\"lineChartLegendAccuracy\"\n              [chartType]=\"lineChartTypeAccuracy\"></canvas>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"containerProjectPerformance\">\n  <div>\n    <span *ngIf=\"displayProjectPerformance\" class=\"titleBlue\">Project Performance - {{title}}</span>\n    <span *ngIf=\"!displayProjectPerformance\" class=\"titleBlack\">Project Performance - {{title}}</span>\n    <i (click)=\"displayProjectPerformance = !displayProjectPerformance; applyFilter();\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectPerformance\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectPerformance\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\"[(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"dailyUser\">\n        <div class=\"textDailyUser\">\n          DAUs\n        </div>\n        <div class=\"barAndValueDailyUser\">\n          <div class=\"barDailyUser\"></div>\n          <div class=\"valueDailyUser\">{{dailyUser}}</div>\n        </div>\n      </div>\n      <div class=\"monthlyUser\">\n        <div class=\"textMonthlyUser\">\n          MAUs\n        </div>\n        <div class=\"barAndValueMonthlyUser\">\n          <div class=\"barMonthlyUser\"></div>\n          <div class=\"valueMonthlyUser\">{{monthlyUser}}</div>\n        </div>\n      </div>\n      <div class=\"matchSpeed\">\n        <div class=\"textMatchSpeed\">\n          Avg. Match Speed\n        </div>\n        <div class=\"barAndValueMatchSpeed\">\n          <div class=\"barMatchSpeed\"></div>\n          <div class=\"valueMatchSpeed\">{{matchSpeed | number : '1.1-3'}}s</div>\n        </div>\n      </div>\n      <div class=\"accuracy\">\n        <div class=\"textAccuracy\" *ngIf=\"type === 'IDENTIFY'\">\n          Avg. Accuracy\n        </div>\n        <div class=\"textAccuracy\" *ngIf=\"type === 'VERIFY'\">\n          Percent of yes\n        </div>\n        <div class=\"barAndValueAccuracy\">\n          <div class=\"barAccuracy\"></div>\n          <div class=\"valueAccuracy\">{{accuracy | number : '1.0-2'}}%</div>\n        </div>\n      </div>\n      <div class=\"number\">\n        <div class=\"textNumber\" *ngIf=\"type === 'IDENTIFY'\">\n          Id's callback\n        </div>\n        <div class=\"textNumber\" *ngIf=\"type === 'VERIFY'\">\n          Verification's number\n        </div>\n        <div class=\"barAndValueNumber\">\n          <div class=\"barNumber\"></div>\n          <div class=\"valueNumber\">{{total}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartDataAccuracy\"\n              [labels]=\"lineChartLabelsAccuracy\"\n              [options]=\"lineChartOptionsAccuracy\"\n              [colors]=\"lineChartColorAccuracy\"\n              [legend]=\"lineChartLegendAccuracy\"\n              [chartType]=\"lineChartTypeAccuracy\"></canvas>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2679,6 +2802,9 @@ var ProjectPerformanceComponent = (function () {
                         scaleLabel: {
                             display: true,
                             labelString: 'Number of user'
+                        },
+                        ticks: {
+                            beginAtZero: true
                         }
                     }, {
                         type: 'linear',
@@ -2687,6 +2813,9 @@ var ProjectPerformanceComponent = (function () {
                         scaleLabel: {
                             display: true,
                             labelString: 'Matching speed'
+                        },
+                        ticks: {
+                            beginAtZero: true
                         }
                     }]
             }
@@ -2858,7 +2987,10 @@ var ProjectPerformanceComponent = (function () {
             else
                 nbLastTier = (data[this.dateEnd]["5ToDate"] || 0);
             this.total = val + nbLastTier;
-            return (val / (val + nbLastTier)) * 100;
+            if (this.total === 0)
+                return 0;
+            else
+                return (val / (val + nbLastTier)) * 100;
         }
         else
             return val;
@@ -2912,10 +3044,14 @@ var ProjectPerformanceComponent = (function () {
         this.lineChartData.push({ data: dataAverage, label: 'Matching Speed', borderColor: 'rgb(231, 95, 156)',
             backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
             pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)', yAxisID: 'y-axis-1' });
+        this.lineChartOptions['scales']['yAxes'][0]['ticks']['max'] = Math.max.apply(null, dataUser) + 1;
+        this.lineChartOptions['scales']['yAxes'][1]['ticks']['max'] = Math.max.apply(null, dataAverage) + 1;
         setTimeout(function () {
             if (_this.chart && _this.chart.chart && _this.chart.chart.config) {
                 _this.chart.chart.config.data.labels = dateArray;
                 _this.chart.chart.config.data.datasets = _this.lineChartData;
+                _this.chart.chart.options.scales.yAxes[0].ticks.max = Math.max.apply(null, dataUser) + 1;
+                _this.chart.chart.options.scales.yAxes[1].ticks.max = Math.max.apply(null, dataAverage) + 1;
                 _this.chart.chart.update();
             }
         });
@@ -2979,6 +3115,14 @@ var ProjectPerformanceComponent = (function () {
     ProjectPerformanceComponent.prototype.applyFilter = function () {
         this.loadData();
     };
+    ProjectPerformanceComponent.prototype.changeDate = function () {
+        if (new Date(this.dateEnd) < new Date(this.dateStart)) {
+            var tmp = this.dateStart;
+            this.dateStart = this.dateEnd;
+            this.dateEnd = tmp;
+        }
+        this.applyFilter();
+    };
     return ProjectPerformanceComponent;
 }());
 __decorate([
@@ -3024,7 +3168,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".containerTable{\n  position: absolute;\n  width: 78vw;\n  left: 2vw;\n  top: 35vh;\n  padding-bottom: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-top: 15px;\n}\n\n.filterData{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  width: 100%;\n}\n\n.imgClock{\n  width: 20px;\n  height: 20px;\n  margin-top: 2px;\n}\n\n.textFilter{\n  margin-top: 3px;\n  margin-left: 5px;\n}\n\n.dateInput{\n  margin-left: 5px;\n  height: 28px;\n  width: 130px;\n}\n\n.buttonFilter{\n  height: 28px;\n  margin-left: 5px;\n  background-image: linear-gradient(to right, rgb(247, 148, 32), rgb(227, 29, 137));\n  border: none;\n  width: 80px;\n}\n\n.table{\n  margin-top: 20px;\n  width: 100%;\n}\n\n.header{\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  padding-left: 30px;\n  height: 50px;\n  padding-top: 10px;\n}\n\n.titleColumn{\n  font-size: 130%;\n  width: 16%;\n  color: rgb(39, 170, 225);\n}\n\n.listData{\n  max-height: 60vh;\n  overflow-y: scroll;\n}\n\n.rowData{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  padding-left: 30px;\n}\n\n.data{\n  width: 16%;\n  overflow-x: scroll;\n  height: 30px;\n  padding-top: 2px;\n}\n\n.odd{\n  background-color: white;\n}\n\n.even{\n  background-color: rgb(244, 249, 250);\n}\n\n.buttonDownload{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  margin-top: 10px;\n  margin-right: 40px;\n}\n\n.button{\n  float: right;\n  background-image: linear-gradient(to right, rgb(39, 170, 225), rgb(139, 197, 68));\n  margin-right: 10px;\n  width: 55px;\n  text-align: center;\n  color: white;\n}\n\n.iconDownload{\n  margin-right: 2px;\n}\n", ""]);
+exports.push([module.i, ".containerTable{\n  position: absolute;\n  width: 78vw;\n  left: 2vw;\n  padding-bottom: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-top: 15px;\n}\n\n.filterData{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  width: 100%;\n}\n\n.imgClock{\n  width: 20px;\n  height: 20px;\n  margin-top: 2px;\n}\n\n.textFilter{\n  margin-top: 3px;\n  margin-left: 5px;\n}\n\n.dateInput{\n  margin-left: 5px;\n  height: 28px;\n  width: 130px;\n}\n\n.buttonFilter{\n  height: 28px;\n  margin-left: 5px;\n  background-image: linear-gradient(to right, rgb(247, 148, 32), rgb(227, 29, 137));\n  border: none;\n  width: 80px;\n}\n\n.table{\n  margin-top: 20px;\n  width: 100%;\n}\n\n.header{\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  padding-left: 30px;\n  height: 50px;\n  padding-top: 10px;\n}\n\n.titleColumn{\n  font-size: 130%;\n  width: 16%;\n  color: rgb(39, 170, 225);\n}\n\n.listData{\n  max-height: 60vh;\n  overflow-y: scroll;\n}\n\n.rowData{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  padding-left: 30px;\n}\n\n.data{\n  width: 16%;\n  overflow-x: scroll;\n  height: 40px;\n  padding-top: 2px;\n}\n\n.odd{\n  background-color: white;\n}\n\n.even{\n  background-color: rgb(244, 249, 250);\n}\n\n.buttonDownload{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  margin-top: 10px;\n  margin-right: 40px;\n}\n\n.button{\n  float: right;\n  background-image: linear-gradient(to right, rgb(39, 170, 225), rgb(139, 197, 68));\n  margin-right: 10px;\n  width: 55px;\n  text-align: center;\n  color: white;\n}\n\n.iconDownload{\n  margin-right: 2px;\n}\n", ""]);
 
 // exports
 
@@ -3037,7 +3181,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/table/table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='project' class=\"containerTable\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n      <input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n      <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n    </div>\n    <div class=\"table\">\n      <div class=\"header\">\n        <div class=\"titleColumn\">\n          Time\n        </div>\n        <div class=\"titleColumn\">\n          User\n        </div>\n        <div class=\"titleColumn\">\n          Activity\n        </div>\n        <div class=\"titleColumn\">\n          GPS\n        </div>\n        <div class=\"titleColumn\">\n          Match Speed\n        </div>\n        <div class=\"titleColumn\">\n          Version\n        </div>\n      </div>\n      <div class=\"listData\" (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions; let odd = odd; let even = even\" class=\"rowData\" [ngClass]=\"{ odd: odd, even: even }\">\n          <div class=\"data\">{{session['Time']}}</div>\n          <div class=\"data\">{{session['User']}}</div>\n          <div class=\"data\">{{session['Activity']}}</div>\n          <div class=\"data\">{{session['GPS']}}</div>\n          <div class=\"data\">{{session['Match Speed']}}</div>\n          <div class=\"data\">{{session['Version']}}</div>\n        </div>\n      </div>\n  </div>\n  <div class=\"buttonDownload\">\n    <div class=\"button\" (click)=\"exportCSV()\"><i class=\"fa fa-download iconDownload\" aria-hidden=\"true\"></i>CSV</div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
+module.exports = "<div *ngIf='project' class=\"containerTable\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n      <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n    </div>\n    <div class=\"table\">\n      <div class=\"header\">\n        <div class=\"titleColumn\">\n          Time\n        </div>\n        <div class=\"titleColumn\">\n          User\n        </div>\n        <div class=\"titleColumn\">\n          Activity\n        </div>\n        <div class=\"titleColumn\">\n          GPS\n        </div>\n        <div class=\"titleColumn\">\n          Match Speed\n        </div>\n        <div class=\"titleColumn\">\n          Version\n        </div>\n      </div>\n      <div class=\"listData\" (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions; let odd = odd; let even = even\" class=\"rowData\" [ngClass]=\"{ odd: odd, even: even }\">\n          <div class=\"data\">{{session['Time']}}</div>\n          <div class=\"data\">{{session['User']}}</div>\n          <div class=\"data\">{{session['Activity']}}</div>\n          <div class=\"data\">{{session['GPS']}}</div>\n          <div class=\"data\">{{session['Match Speed']}}</div>\n          <div class=\"data\">{{session['Version']}}</div>\n        </div>\n      </div>\n  </div>\n  <div class=\"buttonDownload\">\n    <div class=\"button\" (click)=\"exportCSV()\"><i class=\"fa fa-download iconDownload\" aria-hidden=\"true\"></i>CSV</div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
 
 /***/ }),
 
@@ -3073,7 +3217,7 @@ var TableComponent = (function () {
         this.database = database;
         this.datePipe = datePipe;
         this.decimalPipe = decimalPipe;
-        this.heightRow = 30;
+        this.heightRow = 40;
         this.nbValByRequest = 200;
         this.nbValToDisplay = 100;
         this.finish = false;
@@ -3130,9 +3274,11 @@ var TableComponent = (function () {
                         newSession['Activity'] = session['callout'];
                         newSession['GPS'] = _this.decimalPipe.transform(session['latitude'], '1.1-5') + ' ' +
                             _this.decimalPipe.transform(session['longitude'], '1.1-5');
-                        if (session['callout'] === "IDENTIFY") {
+                        if (session['callout'] === "IDENTIFY" || session['callout'] === "VERIFY") {
                             var n = _this.decimalPipe.transform(((session['serverSessionEndTime'] - session['serverMatchStartTime']) / 1000), '1.1-3');
                             newSession['Match Speed'] = '' + n + 's';
+                            if (n === 'NaN')
+                                newSession['Match Speed'] = '';
                         }
                         else
                             newSession['Match Speed'] = '';
@@ -3179,6 +3325,13 @@ var TableComponent = (function () {
                 if (this.chooseUser[i])
                     users.push(this.project.listUsers[i]);
             this.getData(this.lastSession['serverSessionStartTime'], __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformDateToTimestamp(this.dateStart), users, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].convertActivity(this.chooseActivity), false, 0, true);
+        }
+    };
+    TableComponent.prototype.changeDate = function () {
+        if (new Date(this.dateEnd) < new Date(this.dateStart)) {
+            var tmp = this.dateStart;
+            this.dateStart = this.dateEnd;
+            this.dateEnd = tmp;
         }
     };
     TableComponent.prototype.exportCSV = function () {
@@ -3320,6 +3473,382 @@ UserInfoComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=user-info.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/youtrack/youtrack.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".containerYoutrack{\n  position: absolute;\n  left: 2vw;\n  padding-bottom: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-top: 15px;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/youtrack/youtrack.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf='project' class=\"containerYoutrack\">\n  test\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/youtrack/youtrack.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__class_project__ = __webpack_require__("../../../../../src/app/class/project.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return YoutrackComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var YoutrackComponent = (function () {
+    function YoutrackComponent(http) {
+        this.http = http;
+        this.token = 'perm:eW9hbm4=.RGFzaGJvYXJk.ZvyccwFijDALS1Aa1McvPgGYqg8kkp';
+        this.url = 'https://simprints.myjetbrains.com/youtrack/rest/issue';
+        this.json = JSON.parse('{\n' +
+            '  "issue": [\n' +
+            '    {\n' +
+            '      "id": "BUG-2",\n' +
+            '      "entityId": "1-17",\n' +
+            '      "jiraId": null,\n' +
+            '      "field": [\n' +
+            '        {\n' +
+            '          "name": "projectShortName",\n' +
+            '          "value": "BUG"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "numberInProject",\n' +
+            '          "value": "2"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "summary",\n' +
+            '          "value": "Fatal crash in libScanner"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "description",\n' +
+            '          "value": "Fatal crash with v4 of scanner firmware after bad scan"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "created",\n' +
+            '          "value": "1496151259507"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "updated",\n' +
+            '          "value": "1496153198892"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "updaterName",\n' +
+            '          "value": "James"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "updaterFullName",\n' +
+            '          "value": "James"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "resolved",\n' +
+            '          "value": "1496152594028"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "reporterName",\n' +
+            '          "value": "James"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "reporterFullName",\n' +
+            '          "value": "James"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "commentsCount",\n' +
+            '          "value": "0"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "votes",\n' +
+            '          "value": "0"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Demand",\n' +
+            '          "value": [\n' +
+            '            "Critical"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "Critical"\n' +
+            '          ],\n' +
+            '          "color": {\n' +
+            '            "bg": "#ffc8ea",\n' +
+            '            "fg": "#444"\n' +
+            '          }\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Type",\n' +
+            '          "value": [\n' +
+            '            "Bug"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "Bug"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Partner",\n' +
+            '          "value": [\n' +
+            '            "BRAC"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "BRAC"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Module",\n' +
+            '          "value": [\n' +
+            '            "Vero"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "Vero"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "State",\n' +
+            '          "value": [\n' +
+            '            "Fixed"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "Fixed"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Point Person",\n' +
+            '          "value": [\n' +
+            '            {\n' +
+            '              "value": "ridwan",\n' +
+            '              "fullName": "ridwan"\n' +
+            '            }\n' +
+            '          ]\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Affected versions",\n' +
+            '          "value": [\n' +
+            '            "1.3.0"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "1.3.0"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        }\n' +
+            '      ],\n' +
+            '      "comment": [],\n' +
+            '      "tag": []\n' +
+            '    },\n' +
+            '    {\n' +
+            '      "id": "PF-10",\n' +
+            '      "entityId": "1-158",\n' +
+            '      "jiraId": null,\n' +
+            '      "field": [\n' +
+            '        {\n' +
+            '          "name": "projectShortName",\n' +
+            '          "value": "PF"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "numberInProject",\n' +
+            '          "value": "10"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "summary",\n' +
+            '          "value": "BRAC CHWs can\'t ID 23% of patients"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "description",\n' +
+            '          "value": "Just so we have this formally logged somewhere, similar to the Possible ID issue BRAC Community Health Workers can\'t ID some patients. We suspect it\'s the same combination of a) downsync not updating local DBs after the cloud resolution was done to introduce userIDs and b) BRAC/SP databases getting out of sync.\\n\\nManjur bhai is a frickin\' rockstar, and has done a sh$t ton of testing for us without prompting, generating the attached table. Identification is returning the right ID for 77% of patients and not returning the right ID for 23%, so the magnitude is smaller than Possible."\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "created",\n' +
+            '          "value": "1502540122265"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "updated",\n' +
+            '          "value": "1502836963846"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "updaterName",\n' +
+            '          "value": "James"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "updaterFullName",\n' +
+            '          "value": "James"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "reporterName",\n' +
+            '          "value": "toby"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "reporterFullName",\n' +
+            '          "value": "Toby Norman"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "commentsCount",\n' +
+            '          "value": "1"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "votes",\n' +
+            '          "value": "0"\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "links",\n' +
+            '          "value": [\n' +
+            '            {\n' +
+            '              "value": "PF-9",\n' +
+            '              "type": "Relates",\n' +
+            '              "role": "relates to"\n' +
+            '            }\n' +
+            '          ]\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Demand",\n' +
+            '          "value": [\n' +
+            '            "Normal"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "Normal"\n' +
+            '          ],\n' +
+            '          "color": {\n' +
+            '            "bg": "#e6f6cf",\n' +
+            '            "fg": "#4da400"\n' +
+            '          }\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Type",\n' +
+            '          "value": [\n' +
+            '            "Bug"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "Bug"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Module",\n' +
+            '          "value": [\n' +
+            '            "Unknown"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "Unknown"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Partner",\n' +
+            '          "value": [\n' +
+            '            "BRAC"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "BRAC"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "Affected versions",\n' +
+            '          "value": [\n' +
+            '            "1.3.3"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "1.3.3"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "State",\n' +
+            '          "value": [\n' +
+            '            "Submitted"\n' +
+            '          ],\n' +
+            '          "valueId": [\n' +
+            '            "Submitted"\n' +
+            '          ],\n' +
+            '          "color": null\n' +
+            '        },\n' +
+            '        {\n' +
+            '          "name": "attachments",\n' +
+            '          "value": [\n' +
+            '            {\n' +
+            '              "value": "Simprint Scanner Issues.xlsx",\n' +
+            '              "id": "126-4",\n' +
+            '              "url": "https://simprints.myjetbrains.com/youtrack/_persistent/Simprint%20Scanner%20Issues.xlsx?file=126-4&c=true"\n' +
+            '            }\n' +
+            '          ]\n' +
+            '        }\n' +
+            '      ],\n' +
+            '      "comment": [\n' +
+            '        {\n' +
+            '          "id": "2-129",\n' +
+            '          "author": "James",\n' +
+            '          "authorFullName": "James",\n' +
+            '          "issueId": "PF-10",\n' +
+            '          "parentId": null,\n' +
+            '          "deleted": false,\n' +
+            '          "jiraId": null,\n' +
+            '          "text": "I am going to link this to the Possible issue as the downsync is a potential common cause. \\n@toby - this is definitely not going to get resolved quickly - timeframes are the end of this quarter\\\\begining of the next to fix downsync and then some work may be needed to resolve the databases.  ",\n' +
+            '          "shownForIssueAuthor": false,\n' +
+            '          "created": 1502836834459,\n' +
+            '          "updated": null,\n' +
+            '          "permittedGroup": null,\n' +
+            '          "replies": []\n' +
+            '        }\n' +
+            '      ],\n' +
+            '      "tag": []\n' +
+            '    }\n' +
+            '  ]\n' +
+            '}');
+    }
+    YoutrackComponent.prototype.ngOnChanges = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json', 'Authorization': "Bearer " + this.token,
+            'Accept': 'application/json', 'Access-Control-Allow-Origin': '*' });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
+        // this.http.get(`${this.url}?filter=Partner:${this.project.name}`, options).map(response => {
+        //   return response.json();
+        // }).subscribe(json => {
+        //   console.log(json);
+        // });
+        for (var i in this.json['issue'])
+            console.log(this.json['issue'][i]);
+    };
+    return YoutrackComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__class_project__["a" /* Project */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__class_project__["a" /* Project */]) === "function" && _a || Object)
+], YoutrackComponent.prototype, "project", void 0);
+YoutrackComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'youtrack',
+        template: __webpack_require__("../../../../../src/app/youtrack/youtrack.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/youtrack/youtrack.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["f" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["f" /* Http */]) === "function" && _b || Object])
+], YoutrackComponent);
+
+var _a, _b;
+//# sourceMappingURL=youtrack.component.js.map
 
 /***/ }),
 
