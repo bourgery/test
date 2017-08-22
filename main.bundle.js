@@ -2850,11 +2850,11 @@ var ProjectImpactComponent = (function () {
             url = 'dashboard/global';
         this.database.object(url + "/identifications/dates/" + __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].getTodayDate() + "/ToDate")
             .subscribe(function (data) {
-            _this.idCountGlobal = data.$value;
+            _this.idCountGlobal = data.$value || 0;
         });
         this.database.object(url + "/enrollments/dates/" + __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].getTodayDate() + "/ToDate")
             .subscribe(function (data) {
-            _this.patientCountGlobal = data.$value;
+            _this.patientCountGlobal = data.$value || 0;
         });
         this.database.object(url + "/verifications/dates/" + __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].getTodayDate() + "/ToDate")
             .subscribe(function (data) {
@@ -2862,7 +2862,7 @@ var ProjectImpactComponent = (function () {
         });
         this.database.object(url + "/users/dates/" + __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].getTodayDate() + "/ToDate")
             .subscribe(function (data) {
-            _this.userCountGlobal = data.$value;
+            _this.userCountGlobal = data.$value || 0;
         });
     };
     ProjectImpactComponent.prototype.loadData = function () {
