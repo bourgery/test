@@ -956,7 +956,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".container{\n  height: 100vh;\n  overflow-y: scroll;\n  position: absolute;\n  top: 0;\n  left: 17vw;\n  width: 83vw;\n}\n\n.barTop{\n\theight: 25vh;\n\tcolor: white;\n\tfont-size: 250%;\n\ttext-align: center;\n}\n\n.imgTop{\n\twidth: 83vw;\n\theight: 25vh;\n}\n\n.textBarTop{\n\tposition: absolute;\n\ttop: 12vh;\n\tleft: 30vw;\n}\n\n.edit{\n  background-color: white;\n  position: absolute;\n  top: 21vh;\n  left: 74vw;\n  color: rgb(158, 159, 160);\n  font-size: 30%;\n  padding-right: 4px;\n  cursor: pointer;\n}\n\n.pencilEdit{\n  width: 10px;\n}\n\n.mainContainer{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\tbackground-color: rgb(241, 241, 241);\n  height: 75vh;\n}\n\n.mainTitle{\n\tmargin-top: 0;\n\tpadding-top: 30px;\n\tfont-size: 175%;\n\tpadding-left: 2vw;\n\tcolor: rgba(255, 255, 255, 0.5);\n}\n\n.logoTitle{\n\tpadding-top: 30px;\n\tpadding-left: 2vw;\n}\n\n.mainTitleNext{\n\tfont-size: 175%;\n\tpadding-left: 2vw;\n\tcolor: rgba(255, 255, 255, 0.5);\n}\n\n.borderSeparate{\n\tmargin-left: 1vw;\n\tmargin-right: 1vw;\n\tborder: 1px solid white;\n\theight: 2px;\n}\n\n.globalText{\n\tmargin-left: 2vw;\n\tmargin-top: 1vh;\n\tmargin-bottom: 1vh;\n}\n\n.selectMapChartSetting{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: row;\n\t        flex-direction: row;\n  font-size: 140%;\n}\n\n.blockTextBorder{\n\twidth: 150px;\n\theight: 50px;\n\tmargin-top: 20px;\n\tmargin-left: 30px;\n\tcolor: rgb(158, 159, 160);\n}\n\n.blueText{\n  color: rgb(71, 139, 202);\n}\n\n.blueBorder{\n  border: 1px solid rgb(71, 139, 202);\n\twidth: 150px;\n}\n\n.borderUnderline{\n\tborder: 1px solid rgb(175, 176, 177);\n\twidth: 150px;\n}\n\n.projectName{\n\tpadding-top: 15px;\n\tpadding-left: 2vw;\n}\n\n.selectProject{\n  color: rgb(71, 139, 202);\n}\n\n.listProject{\n\tbackground-color: rgba(33, 33, 33, 1);\n\tcolor: white;\n\tmargin-left: 0;\n\twidth: 17vw;\n\toverflow-y: scroll;\n\theight: 100%;\n\tcursor: pointer;\n}\n.createProject{\n\tmargin-left: 2vw;\n\tmargin-top: 2vh;\n\ttext-align: center;\n\tcolor: black;\n}\n\n.logout{\n\tmargin-left: 2vw;\n\tmargin-top: 2vh;\n\ttext-align: center;\n\tcolor: rgb(237, 28, 36);\n}\n\n.paddingBottom{\n\theight: 2vh;\n}\n", ""]);
+exports.push([module.i, ".container{\n  height: 100vh;\n  overflow-y: scroll;\n  position: absolute;\n  top: 0;\n  left: 17vw;\n  width: 83vw;\n}\n\n.barTop{\n\theight: 25vh;\n\tcolor: white;\n\tfont-size: 250%;\n\ttext-align: center;\n}\n\n.imgTop{\n\twidth: 83vw;\n\theight: 25vh;\n}\n\n.textBarTop{\n\tposition: absolute;\n\ttop: 12vh;\n\tleft: 30vw;\n}\n\n.edit{\n  background-color: white;\n  position: absolute;\n  top: 21vh;\n  left: 74vw;\n  color: rgb(158, 159, 160);\n  font-size: 30%;\n  padding-right: 4px;\n  cursor: pointer;\n}\n\n.pencilEdit{\n  width: 10px;\n}\n\n.mainContainer{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: vertical;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: column;\n\t        flex-direction: column;\n\tbackground-color: rgb(241, 241, 241);\n  height: 75vh;\n}\n\n.mainTitle{\n\tmargin-top: 0;\n\tpadding-top: 30px;\n\tfont-size: 175%;\n\tpadding-left: 2vw;\n\tcolor: rgba(255, 255, 255, 0.5);\n}\n\n.logoTitle{\n\tpadding-top: 30px;\n\tpadding-left: 2vw;\n}\n\n.mainTitleNext{\n\tfont-size: 175%;\n\tpadding-left: 2vw;\n\tcolor: rgba(255, 255, 255, 0.5);\n}\n\n.borderSeparate{\n\tmargin-left: 1vw;\n\tmargin-right: 1vw;\n\tborder: 1px solid white;\n\theight: 2px;\n}\n\n.globalText{\n\tmargin-left: 2vw;\n\tmargin-top: 1vh;\n\tmargin-bottom: 1vh;\n}\n\n.selectMapChartSetting{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n\t-webkit-box-orient: horizontal;\n\t-webkit-box-direction: normal;\n\t    -ms-flex-direction: row;\n\t        flex-direction: row;\n  font-size: 140%;\n}\n\n.blockTextBorder{\n\twidth: 150px;\n\theight: 50px;\n\tmargin-top: 20px;\n\tmargin-left: 30px;\n\tcolor: rgb(158, 159, 160);\n  cursor: pointer;\n}\n\n.blueText{\n  color: rgb(71, 139, 202);\n}\n\n.blueBorder{\n  border: 1px solid rgb(71, 139, 202);\n\twidth: 150px;\n}\n\n.borderUnderline{\n\tborder: 1px solid rgb(175, 176, 177);\n\twidth: 150px;\n}\n\n.projectName{\n\tpadding-top: 15px;\n\tpadding-left: 2vw;\n}\n\n.selectProject{\n  color: rgb(71, 139, 202);\n}\n\n.listProject{\n\tbackground-color: rgba(33, 33, 33, 1);\n\tcolor: white;\n\tmargin-left: 0;\n\twidth: 17vw;\n\toverflow-y: scroll;\n\theight: 100%;\n\tcursor: pointer;\n}\n.createProject{\n\tmargin-left: 2vw;\n\tmargin-top: 2vh;\n\ttext-align: center;\n\tcolor: black;\n}\n\n.logout{\n\tmargin-left: 2vw;\n\tmargin-top: 2vh;\n\ttext-align: center;\n\tcolor: rgb(237, 28, 36);\n}\n\n.paddingBottom{\n\theight: 2vh;\n}\n", ""]);
 
 // exports
 
@@ -1200,6 +1200,9 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__project_performance_project_performance_component__ = __webpack_require__("../../../../../src/app/project-performance/project-performance.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__user_info_user_info_component__ = __webpack_require__("../../../../../src/app/user-info/user-info.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__youtrack_youtrack_component__ = __webpack_require__("../../../../../src/app/youtrack/youtrack.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__modal_modal_component__ = __webpack_require__("../../../../../src/app/modal/modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__modal_modal_service__ = __webpack_require__("../../../../../src/app/modal/modal.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__list_error_list_error_component__ = __webpack_require__("../../../../../src/app/list-error/list-error.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1207,6 +1210,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -1258,7 +1264,9 @@ DashboardModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_25__project_error_project_error_component__["a" /* ProjectErrorComponent */],
             __WEBPACK_IMPORTED_MODULE_26__project_performance_project_performance_component__["a" /* ProjectPerformanceComponent */],
             __WEBPACK_IMPORTED_MODULE_27__user_info_user_info_component__["a" /* UserInfoComponent */],
-            __WEBPACK_IMPORTED_MODULE_28__youtrack_youtrack_component__["a" /* YoutrackComponent */]
+            __WEBPACK_IMPORTED_MODULE_28__youtrack_youtrack_component__["a" /* YoutrackComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__modal_modal_component__["a" /* ModalComponent */],
+            __WEBPACK_IMPORTED_MODULE_31__list_error_list_error_component__["a" /* ListErrorComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
@@ -1275,7 +1283,8 @@ DashboardModule = __decorate([
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_15__auth_guard_service__["a" /* AuthGuard */],
-            __WEBPACK_IMPORTED_MODULE_16__auth_service__["a" /* AuthService */]
+            __WEBPACK_IMPORTED_MODULE_16__auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_30__modal_modal_service__["a" /* ModalService */]
         ]
     })
 ], DashboardModule);
@@ -1592,6 +1601,146 @@ GeneralInformationComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=general-information.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/list-error/list-error.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".table{\n  margin-top: 20px;\n  width: 100%;\n}\n\n.header{\n  background-color: white;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  padding-left: 30px;\n  height: 50px;\n  padding-top: 10px;\n}\n\n.titleColumn{\n  font-size: 130%;\n  width: 16%;\n  color: rgb(39, 170, 225);\n}\n\n.titleColumnName{\n  font-size: 130%;\n  width: 20%;\n  color: rgb(39, 170, 225);\n}\n\n.titleColumnVersion{\n  font-size: 130%;\n  width: 12%;\n  color: rgb(39, 170, 225);\n}\n\n.listData{\n  max-height: 60vh;\n  overflow-y: scroll;\n}\n\n.rowData{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  padding-left: 30px;\n}\n\n.data{\n  width: 16%;\n  overflow-x: scroll;\n  height: 40px;\n  padding-top: 2px;\n}\n\n.dataName{\n  width: 20%;\n  overflow-x: scroll;\n  height: 40px;\n  padding-top: 2px;\n}\n\n.dataVersion{\n  width: 12%;\n  overflow-x: scroll;\n  height: 40px;\n  padding-top: 2px;\n}\n.odd{\n  background-color: white;\n}\n\n.even{\n  background-color: rgb(244, 249, 250);\n}\n\n.button{\n  float: right;\n  background-image: linear-gradient(to right, rgb(39, 170, 225), rgb(139, 197, 68));\n  margin-right: 10px;\n  width: 55px;\n  text-align: center;\n  color: white;\n  cursor: pointer;\n}\n\n.iconDownload{\n  margin-right: 2px;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/list-error/list-error.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"table\">\n  <div class=\"header\">\n    <div class=\"titleColumn\">\n      Time\n    </div>\n    <div class=\"titleColumn\">\n      User\n    </div>\n    <div class=\"titleColumnName\">\n      Error\n    </div>\n    <div class=\"titleColumn\">\n      Project\n    </div>\n    <div class=\"titleColumn\">\n      Module\n    </div>\n    <div class=\"titleColumnVersion\">\n      Version\n    </div>\n  </div>\n  <div class=\"listData\">\n    <div *ngFor=\"let error of listError; let odd = odd; let even = even\" class=\"rowData\" [ngClass]=\"{ odd: odd, even: even }\">\n      <div class=\"data\">{{error['Time']}}</div>\n      <div class=\"data\">{{error['User']}}</div>\n      <div class=\"dataName\">{{error['Name']}}</div>\n      <div class=\"data\">{{error['Project']}}</div>\n      <div class=\"data\">{{error['Module']}}</div>\n      <div class=\"dataVersion\">{{error['Version']}}</div>\n    </div>\n  </div>\n</div>\n<div class=\"buttonDownload\">\n  <div class=\"button\" (click)=\"exportCSV()\"><i class=\"fa fa-download iconDownload\"></i>CSV</div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/list-error/list-error.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_csv_Angular2_csv__ = __webpack_require__("../../../../angular2-csv/Angular2-csv.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular2_csv_Angular2_csv___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular2_csv_Angular2_csv__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__class_project__ = __webpack_require__("../../../../../src/app/class/project.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListErrorComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+/**
+ * Created by yoann on 18/07/2017.
+ */
+
+
+
+
+
+var ListErrorComponent = (function () {
+    function ListErrorComponent(database, datePipe) {
+        this.database = database;
+        this.datePipe = datePipe;
+        this.listError = [];
+    }
+    ListErrorComponent.prototype.ngOnChanges = function () {
+        var _this = this;
+        console.log(this.list);
+        var url;
+        if (this.project.name === 'Global')
+            url = 'all-errors';
+        else
+            url = "project-errors/" + this.project.id;
+        this.listError = [];
+        this.database.list(url, {
+            query: {
+                orderByChild: 'serverCreatedAt',
+                startAt: new Date(this.dateStart).getTime(),
+                endAt: new Date(this.dateEnd).getTime()
+            }
+        })
+            .subscribe(function (data) {
+            data.forEach(function (error) {
+                if (_this.list.includes(error['name'])) {
+                    if (_this.user === 'All' || _this.user === error['userId']) {
+                        var newError = {};
+                        newError['Time'] = _this.datePipe.transform(error['serverCreatedAt']);
+                        newError['User'] = error['userId'];
+                        newError['Name'] = error['name'];
+                        newError['Project'] = error['projectId'];
+                        newError['Module'] = error['moduleId'];
+                        newError['Version'] = error['appVersion'];
+                        _this.listError.push(newError);
+                    }
+                }
+            });
+            _this.listError.reverse();
+        });
+    };
+    ListErrorComponent.prototype.exportCSV = function () {
+        var options = {
+            fieldSeparator: ';',
+            quoteStrings: '"',
+            decimalseparator: '.',
+            showLabels: true,
+            useBom: true
+        };
+        new __WEBPACK_IMPORTED_MODULE_2_angular2_csv_Angular2_csv__["Angular2Csv"](this.listError, 'ListError', options);
+    };
+    return ListErrorComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__class_project__["a" /* Project */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__class_project__["a" /* Project */]) === "function" && _a || Object)
+], ListErrorComponent.prototype, "project", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], ListErrorComponent.prototype, "dateStart", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], ListErrorComponent.prototype, "dateEnd", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Array)
+], ListErrorComponent.prototype, "list", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], ListErrorComponent.prototype, "user", void 0);
+ListErrorComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'list-error',
+        template: __webpack_require__("../../../../../src/app/list-error/list-error.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/list-error/list-error.component.css")],
+        providers: [__WEBPACK_IMPORTED_MODULE_3__angular_common__["DatePipe"]]
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["DatePipe"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common__["DatePipe"]) === "function" && _c || Object])
+], ListErrorComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=list-error.component.js.map
 
 /***/ }),
 
@@ -1977,6 +2126,124 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "../../../../../src/app/modal/modal.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__modal_service__ = __webpack_require__("../../../../../src/app/modal/modal.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ModalComponent = (function () {
+    function ModalComponent(modalService, el) {
+        this.modalService = modalService;
+        this.el = el;
+        this.element = __WEBPACK_IMPORTED_MODULE_1_jquery__(el.nativeElement);
+    }
+    ModalComponent.prototype.ngOnInit = function () {
+        var modal = this;
+        // ensure id attribute exists
+        if (!this.id) {
+            console.error('modal must have an id');
+            return;
+        }
+        // move element to bottom of page (just before </body>) so it can be displayed above everything else
+        this.element.appendTo('body');
+        // close modal on background click
+        this.element.on('click', function (e) {
+            var target = __WEBPACK_IMPORTED_MODULE_1_jquery__(e.target);
+            if (!target.closest('.modal-body').length) {
+                modal.close();
+            }
+        });
+        // add self (this modal instance) to the modal service so it's accessible from controllers
+        this.modalService.add(this);
+    };
+    // remove self from modal service when directive is destroyed
+    ModalComponent.prototype.ngOnDestroy = function () {
+        this.modalService.remove(this.id);
+        this.element.remove();
+    };
+    // open modal
+    ModalComponent.prototype.open = function () {
+        this.element.show();
+        __WEBPACK_IMPORTED_MODULE_1_jquery__('body').addClass('modal-open');
+    };
+    // close modal
+    ModalComponent.prototype.close = function () {
+        this.element.hide();
+        __WEBPACK_IMPORTED_MODULE_1_jquery__('body').removeClass('modal-open');
+    };
+    return ModalComponent;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], ModalComponent.prototype, "id", void 0);
+ModalComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'modal',
+        template: '<ng-content></ng-content>'
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__modal_service__["a" /* ModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__modal_service__["a" /* ModalService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _b || Object])
+], ModalComponent);
+
+var _a, _b;
+//# sourceMappingURL=modal.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/modal/modal.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_underscore__ = __webpack_require__("../../../../underscore/underscore.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_underscore__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalService; });
+
+var ModalService = (function () {
+    function ModalService() {
+        this.modals = [];
+    }
+    ModalService.prototype.add = function (modal) {
+        // add modal to array of active modals
+        this.modals.push(modal);
+    };
+    ModalService.prototype.remove = function (id) {
+        // remove modal from array of active modals
+        var modalToRemove = __WEBPACK_IMPORTED_MODULE_0_underscore__["findWhere"](this.modals, { id: id });
+        this.modals = __WEBPACK_IMPORTED_MODULE_0_underscore__["without"](this.modals, modalToRemove);
+    };
+    ModalService.prototype.open = function (id) {
+        // open modal specified by id
+        var modal = __WEBPACK_IMPORTED_MODULE_0_underscore__["findWhere"](this.modals, { id: id });
+        modal.open();
+    };
+    ModalService.prototype.close = function (id) {
+        // close modal specified by id
+        var modal = __WEBPACK_IMPORTED_MODULE_0_underscore__["find"](this.modals, { id: id });
+        modal.close();
+    };
+    return ModalService;
+}());
+
+//# sourceMappingURL=modal.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/multiple-select/multiple-select.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2058,8 +2325,7 @@ var MultipleSelectComponent = (function () {
         }
         if (this.displayTitle)
             this.changeTitle();
-        this.displayVal = false;
-        this.changeValue.emit();
+        this.emitEvent();
     };
     MultipleSelectComponent.prototype.changeTitle = function () {
         if (this.checkAllVal)
@@ -2079,14 +2345,18 @@ var MultipleSelectComponent = (function () {
         }
         if (this.displayTitle)
             this.changeTitle();
-        this.displayVal = false;
-        this.changeValue.emit();
+        this.emitEvent();
     };
     MultipleSelectComponent.prototype.changeChoose = function (val) {
         this.title = val;
         this.choose[0] = val;
-        this.displayVal = false;
-        this.changeValue.emit();
+        this.emitEvent();
+    };
+    MultipleSelectComponent.prototype.emitEvent = function () {
+        if (this.getEvent) {
+            this.displayVal = false;
+            this.changeValue.emit();
+        }
     };
     MultipleSelectComponent.prototype.searchValue = function () {
         if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_util__["isUndefined"])(this.choose)) {
@@ -2122,6 +2392,10 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
     __metadata("design:type", Boolean)
 ], MultipleSelectComponent.prototype, "displayTitle", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", Boolean)
+], MultipleSelectComponent.prototype, "getEvent", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
@@ -2159,7 +2433,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/project-error/project-error.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ngIf=\"displayProjectError\" class=\"titleBlue\">Project Errors</span>\n    <span *ngIf=\"!displayProjectError\" class=\"titleBlack\">Project Errors</span>\n    <i (click)=\"displayProjectError = !displayProjectError; applyFilter();\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectError\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectError\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"blueError\">\n        <div class=\"textBlueError\">\n          Blue errors\n        </div>\n        <div class=\"barAndValueBlueError\">\n          <div class=\"barBlueError\"></div>\n          <div class=\"valueBlueError\">{{blueErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"yellowError\">\n        <div class=\"textYellowError\">\n          Yellow errors\n        </div>\n        <div class=\"barAndValueYellowError\">\n          <div class=\"barYellowError\"></div>\n          <div class=\"valueYellowError\">{{yellowErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"redError\">\n        <div class=\"textRedError\">\n          Red errors\n        </div>\n        <div class=\"barAndValueRedError\">\n          <div class=\"barRedError\"></div>\n          <div class=\"valueRedError\">{{redErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"greyError\">\n        <div class=\"textGreyError\">\n          Grey errors\n        </div>\n        <div class=\"barAndValueGreyError\">\n          <div class=\"barGreyError\"></div>\n          <div class=\"valueGreyError\">{{greyErrorCount}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ngIf=\"displayProjectError\" class=\"titleBlue\">Project Errors</span>\n    <span *ngIf=\"!displayProjectError\" class=\"titleBlack\">Project Errors</span>\n    <i (click)=\"displayProjectError = !displayProjectError; applyFilter();\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectError\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectError\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\"><input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\"\n                       [list]=\"project.listUsers\" [getEvent]=\"true\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"blueError\">\n        <div class=\"textBlueError\">\n          Blue errors <i class=\"fa fa-search\" (click)=\"openModal('custom-modal-1', 'blue')\"></i>\n        </div>\n        <div class=\"barAndValueBlueError\">\n          <div class=\"barBlueError\"></div>\n          <div class=\"valueBlueError\">{{blueErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"yellowError\">\n        <div class=\"textYellowError\">\n          Yellow errors <i class=\"fa fa-search\" (click)=\"openModal('custom-modal-1', 'yellow')\"></i>\n        </div>\n        <div class=\"barAndValueYellowError\">\n          <div class=\"barYellowError\"></div>\n          <div class=\"valueYellowError\">{{yellowErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"redError\">\n        <div class=\"textRedError\">\n          Red errors <i class=\"fa fa-search\" (click)=\"openModal('custom-modal-1', 'red')\"></i>\n        </div>\n        <div class=\"barAndValueRedError\">\n          <div class=\"barRedError\"></div>\n          <div class=\"valueRedError\">{{redErrorCount}}</div>\n        </div>\n      </div>\n      <div class=\"greyError\">\n        <div class=\"textGreyError\">\n          Grey errors <i class=\"fa fa-search\" (click)=\"openModal('custom-modal-1', 'grey')\"></i>\n        </div>\n        <div class=\"barAndValueGreyError\">\n          <div class=\"barGreyError\"></div>\n          <div class=\"valueGreyError\">{{greyErrorCount}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n  </div>\n  <modal id=\"custom-modal-1\">\n    <div class=\"modal\">\n      <div class=\"modal-body\">\n        <list-error [project]=\"project\" [dateStart]=\"dateStart\" [dateEnd]=\"dateEnd\" [list]=\"typeListError\"\n        [user]=\"chooseUser[0]\"></list-error>\n        <button (click)=\"closeModal('custom-modal-1');\">Close</button>\n      </div>\n    </div>\n    <div class=\"modal-background\"></div>\n  </modal>\n</div>\n"
 
 /***/ }),
 
@@ -2171,12 +2445,13 @@ module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ng
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__ = __webpack_require__("../../../../angularfire2/database.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_charts_ng2_charts__ = __webpack_require__("../../../../ng2-charts/ng2-charts.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng2_charts_ng2_charts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng2_charts_ng2_charts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__class_project__ = __webpack_require__("../../../../../src/app/class/project.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__class_utils__ = __webpack_require__("../../../../../src/app/class/utils.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_util__ = __webpack_require__("../../../../util/util.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_util___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_util__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modal_modal_service__ = __webpack_require__("../../../../../src/app/modal/modal.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__("../../../../rxjs/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__class_project__ = __webpack_require__("../../../../../src/app/class/project.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__class_utils__ = __webpack_require__("../../../../../src/app/class/utils.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_util__ = __webpack_require__("../../../../util/util.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_util___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_util__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectErrorComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2197,12 +2472,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ProjectErrorComponent = (function () {
-    function ProjectErrorComponent(database) {
+    function ProjectErrorComponent(database, modalService) {
         this.database = database;
+        this.modalService = modalService;
         this.displayProjectError = true;
         this.chooseUser = [];
         this.displayChart = false;
+        this.typeListError = [];
         this.lineChartLegend = true;
         this.lineChartType = 'line';
         this.lineChartOptions = {
@@ -2234,11 +2512,11 @@ var ProjectErrorComponent = (function () {
             if (this.chooseUser[0] === 'All')
                 url = "dashboard/project/" + this.project.id + "/project-data";
             else
-                url = "dashboard/project/" + this.project.id + "/user-data/users/ID-" + this.chooseUser;
+                url = "dashboard/project/" + this.project.id + "/user-data/users/ID-" + this.chooseUser[0];
         }
         else
             url = 'dashboard/global';
-        __WEBPACK_IMPORTED_MODULE_3_rxjs__["Observable"].forkJoin(this.database.list(url + "/LOW_BATTERY/dates", {
+        __WEBPACK_IMPORTED_MODULE_4_rxjs__["Observable"].forkJoin(this.database.list(url + "/LOW_BATTERY/dates", {
             query: {
                 orderByKey: true,
                 startAt: this.dateStart,
@@ -2317,17 +2595,17 @@ var ProjectErrorComponent = (function () {
         });
     };
     ProjectErrorComponent.prototype.calculateValue = function () {
-        this.blueErrorCount = this.calculateOneValue(__WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listBlueError);
-        this.redErrorCount = this.calculateOneValue(__WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listRedError);
-        this.yellowErrorCount = this.calculateOneValue(__WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listYellowError);
-        this.greyErrorCount = this.calculateOneValue(__WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listGreyError);
+        this.blueErrorCount = this.calculateOneValue(__WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listBlueError);
+        this.redErrorCount = this.calculateOneValue(__WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listRedError);
+        this.yellowErrorCount = this.calculateOneValue(__WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listYellowError);
+        this.greyErrorCount = this.calculateOneValue(__WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listGreyError);
     };
     ProjectErrorComponent.prototype.calculateOneValue = function (tab) {
         var nb = 0;
         for (var i = 0; i < tab.length; i++) {
-            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_util__["isUndefined"])(this.allData[tab[i]])) {
-                if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_util__["isUndefined"])(this.allData[tab[i]][this.dateEnd])) {
-                    if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_util__["isUndefined"])(this.allData[tab[i]][this.dateStart]))
+            if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.allData[tab[i]])) {
+                if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.allData[tab[i]][this.dateEnd])) {
+                    if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.allData[tab[i]][this.dateStart]))
                         nb += this.allData[tab[i]][this.dateEnd]['ToDate'] - this.allData[tab[i]][this.dateStart]['ToDate'];
                     else
                         nb += this.allData[tab[i]][this.dateEnd]['ToDate'];
@@ -2337,47 +2615,47 @@ var ProjectErrorComponent = (function () {
         return nb;
     };
     ProjectErrorComponent.prototype.transformErrorData = function (tab) {
-        this.allData['LOW_BATTERY'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[0]);
-        this.allData['BLUETOOTH_NOT_ENABLED'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[1]);
-        this.allData['MULTIPLE_PAIRED_SCANNERS'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[2]);
-        this.allData['NOT_PAIRED'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[3]);
-        this.allData['DISCONNECTED'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[4]);
-        this.allData['UNEXPECTED_ERROR'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[5]);
-        this.allData['MISSING_MODULE_ID'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[6]);
-        this.allData['INVALID_API_KEY'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[7]);
-        this.allData['MISSING_USER_ID'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[8]);
-        this.allData['GUID_NOT_FOUND_OFFLINE'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[9]);
-        this.allData['GUID_NOT_FOUND_ONLINE'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[10]);
-        this.allData['UNVERIFIED_API_KEY'] = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].transformTab(tab[11]);
+        this.allData['LOW_BATTERY'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[0]);
+        this.allData['BLUETOOTH_NOT_ENABLED'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[1]);
+        this.allData['MULTIPLE_PAIRED_SCANNERS'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[2]);
+        this.allData['NOT_PAIRED'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[3]);
+        this.allData['DISCONNECTED'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[4]);
+        this.allData['UNEXPECTED_ERROR'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[5]);
+        this.allData['MISSING_MODULE_ID'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[6]);
+        this.allData['INVALID_API_KEY'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[7]);
+        this.allData['MISSING_USER_ID'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[8]);
+        this.allData['GUID_NOT_FOUND_OFFLINE'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[9]);
+        this.allData['GUID_NOT_FOUND_ONLINE'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[10]);
+        this.allData['UNVERIFIED_API_KEY'] = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].transformTab(tab[11]);
     };
     ProjectErrorComponent.prototype.createGraph = function () {
         var _this = this;
-        var dateArray = __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].computeDateArray(this.dateStart, this.dateEnd);
+        var dateArray = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].computeDateArray(this.dateStart, this.dateEnd);
         this.lineChartData = [];
         var max = 0;
         if (this.blueErrorCount !== 0) {
-            var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listBlueError);
+            var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listBlueError);
             max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Blue errors', borderColor: 'rgb(39, 170, 225)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.yellowErrorCount !== 0) {
-            var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listYellowError);
+            var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listYellowError);
             max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Yellow errors', borderColor: 'rgb(247, 138, 32)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.redErrorCount !== 0) {
-            var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listRedError);
+            var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listRedError);
             max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Red errors', borderColor: 'rgb(231, 95, 156)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
                 pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: 'rgba(148,159,177,0.8)' });
         }
         if (this.greyErrorCount !== 0) {
-            var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_5__class_utils__["a" /* Utils */].listGreyError);
+            var data = this.computeNewValueGraph(dateArray, __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listGreyError);
             max = Math.max(max, Math.max.apply(null, data));
             this.lineChartData.push({ data: data, label: 'Grey errors', borderColor: 'rgb(116, 77, 155)',
                 backgroundColor: 'rgba(255,255,255,0)', pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -2403,8 +2681,8 @@ var ProjectErrorComponent = (function () {
         for (var j = 0; j < dateArray.length; j++) {
             var nb = 0;
             for (var i = 0; i < errorNames.length; i++) {
-                if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_util__["isUndefined"])(this.allData[errorNames[i]])) {
-                    if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6_util__["isUndefined"])(this.allData[errorNames[i]][dateArray[j]])) {
+                if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.allData[errorNames[i]])) {
+                    if (!__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7_util__["isUndefined"])(this.allData[errorNames[i]][dateArray[j]])) {
                         nb += (this.allData[errorNames[i]][dateArray[j]]['ThisDay'] || 0);
                     }
                 }
@@ -2424,11 +2702,25 @@ var ProjectErrorComponent = (function () {
         }
         this.applyFilter();
     };
+    ProjectErrorComponent.prototype.openModal = function (id, choice) {
+        this.modalService.open(id);
+        if (choice === 'blue')
+            this.typeListError = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listBlueError;
+        else if (choice === 'yellow')
+            this.typeListError = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listYellowError;
+        else if (choice === 'red')
+            this.typeListError = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listRedError;
+        else
+            this.typeListError = __WEBPACK_IMPORTED_MODULE_6__class_utils__["a" /* Utils */].listGreyError;
+    };
+    ProjectErrorComponent.prototype.closeModal = function (id) {
+        this.modalService.close(id);
+    };
     return ProjectErrorComponent;
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__class_project__["a" /* Project */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__class_project__["a" /* Project */]) === "function" && _a || Object)
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__class_project__["a" /* Project */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__class_project__["a" /* Project */]) === "function" && _a || Object)
 ], ProjectErrorComponent.prototype, "project", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
@@ -2448,10 +2740,10 @@ ProjectErrorComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/project-error/project-error.component.html"),
         styles: [__webpack_require__("../../../../../src/app/project-error/project-error.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["b" /* AngularFireDatabase */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__modal_modal_service__["a" /* ModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__modal_modal_service__["a" /* ModalService */]) === "function" && _d || Object])
 ], ProjectErrorComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d;
 //# sourceMappingURL=project-error.component.js.map
 
 /***/ }),
@@ -2477,7 +2769,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/project-impact/project-impact.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ngIf=\"displayProjectImpact\" class=\"titleBlue\">Project Impact</span>\n    <span *ngIf=\"!displayProjectImpact\" class=\"titleBlack\">Project Impact</span>\n    <i (click)=\"displayProjectImpact = !displayProjectImpact; applyFilter()\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectImpact\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectImpact\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [list]=\"listActivity\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"enrollment\">\n        <div class=\"textEnrollment\">\n          Enrollments\n        </div>\n        <div class=\"barAndValueEnrollment\">\n          <div class=\"barEnrollment\"></div>\n          <div class=\"valueEnrollment\">{{patientCount}}</div>\n        </div>\n      </div>\n      <div class=\"identification\">\n        <div class=\"textIdentification\">\n          Identifications\n        </div>\n        <div class=\"barAndValueIdentification\">\n          <div class=\"barIdentification\"></div>\n          <div class=\"valueIdentification\">{{idCount}}</div>\n        </div>\n      </div>\n      <div class=\"verification\">\n        <div class=\"textVerification\">\n          Verifications\n        </div>\n        <div class=\"barAndValueVerification\">\n          <div class=\"barVerification\"></div>\n          <div class=\"valueVerification\">{{verifyCount}}</div>\n        </div>\n      </div>\n      <div class=\"user\">\n        <div class=\"textUser\">\n          Users\n        </div>\n        <div class=\"barAndValueUser\">\n          <div class=\"barUser\"></div>\n          <div class=\"valueUser\">{{userCount}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"containerProjectImpact\">\n  <div>\n    <span *ngIf=\"displayProjectImpact\" class=\"titleBlue\">Project Impact</span>\n    <span *ngIf=\"!displayProjectImpact\" class=\"titleBlack\">Project Impact</span>\n    <i (click)=\"displayProjectImpact = !displayProjectImpact; applyFilter()\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectImpact\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectImpact\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\"\n                       [list]=\"project.listUsers\" [getEvent]=\"true\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [list]=\"listActivity\"\n                       [getEvent]=\"true\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"enrollment\">\n        <div class=\"textEnrollment\">\n          Enrollments\n        </div>\n        <div class=\"barAndValueEnrollment\">\n          <div class=\"barEnrollment\"></div>\n          <div class=\"valueEnrollment\">{{patientCount}}</div>\n        </div>\n      </div>\n      <div class=\"identification\">\n        <div class=\"textIdentification\">\n          Identifications\n        </div>\n        <div class=\"barAndValueIdentification\">\n          <div class=\"barIdentification\"></div>\n          <div class=\"valueIdentification\">{{idCount}}</div>\n        </div>\n      </div>\n      <div class=\"verification\">\n        <div class=\"textVerification\">\n          Verifications\n        </div>\n        <div class=\"barAndValueVerification\">\n          <div class=\"barVerification\"></div>\n          <div class=\"valueVerification\">{{verifyCount}}</div>\n        </div>\n      </div>\n      <div class=\"user\">\n        <div class=\"textUser\">\n          Users\n        </div>\n        <div class=\"barAndValueUser\">\n          <div class=\"barUser\"></div>\n          <div class=\"valueUser\">{{userCount}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2738,7 +3030,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/project-performance/project-performance.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"containerProjectPerformance\">\n  <div>\n    <span *ngIf=\"displayProjectPerformance\" class=\"titleBlue\">Project Performance - {{title}}</span>\n    <span *ngIf=\"!displayProjectPerformance\" class=\"titleBlack\">Project Performance - {{title}}</span>\n    <i (click)=\"displayProjectPerformance = !displayProjectPerformance; applyFilter();\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectPerformance\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectPerformance\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\"[(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"dailyUser\">\n        <div class=\"textDailyUser\">\n          DAUs\n        </div>\n        <div class=\"barAndValueDailyUser\">\n          <div class=\"barDailyUser\"></div>\n          <div class=\"valueDailyUser\">{{dailyUser}}</div>\n        </div>\n      </div>\n      <div class=\"monthlyUser\">\n        <div class=\"textMonthlyUser\">\n          MAUs\n        </div>\n        <div class=\"barAndValueMonthlyUser\">\n          <div class=\"barMonthlyUser\"></div>\n          <div class=\"valueMonthlyUser\">{{monthlyUser}}</div>\n        </div>\n      </div>\n      <div class=\"matchSpeed\">\n        <div class=\"textMatchSpeed\">\n          Avg. Match Speed\n        </div>\n        <div class=\"barAndValueMatchSpeed\">\n          <div class=\"barMatchSpeed\"></div>\n          <div class=\"valueMatchSpeed\">{{matchSpeed | number : '1.1-3'}}s</div>\n        </div>\n      </div>\n      <div class=\"accuracy\">\n        <div class=\"textAccuracy\" *ngIf=\"type === 'IDENTIFY'\">\n          Avg. Accuracy\n        </div>\n        <div class=\"textAccuracy\" *ngIf=\"type === 'VERIFY'\">\n          Percent of yes\n        </div>\n        <div class=\"barAndValueAccuracy\">\n          <div class=\"barAccuracy\"></div>\n          <div class=\"valueAccuracy\">{{accuracy | number : '1.0-2'}}%</div>\n        </div>\n      </div>\n      <div class=\"number\">\n        <div class=\"textNumber\" *ngIf=\"type === 'IDENTIFY'\">\n          Id's callback\n        </div>\n        <div class=\"textNumber\" *ngIf=\"type === 'VERIFY'\">\n          Verification's number\n        </div>\n        <div class=\"barAndValueNumber\">\n          <div class=\"barNumber\"></div>\n          <div class=\"valueNumber\">{{total}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartDataAccuracy\"\n              [labels]=\"lineChartLabelsAccuracy\"\n              [options]=\"lineChartOptionsAccuracy\"\n              [colors]=\"lineChartColorAccuracy\"\n              [legend]=\"lineChartLegendAccuracy\"\n              [chartType]=\"lineChartTypeAccuracy\"></canvas>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"containerProjectPerformance\">\n  <div>\n    <span *ngIf=\"displayProjectPerformance\" class=\"titleBlue\">Project Performance - {{title}}</span>\n    <span *ngIf=\"!displayProjectPerformance\" class=\"titleBlack\">Project Performance - {{title}}</span>\n    <i (click)=\"displayProjectPerformance = !displayProjectPerformance; applyFilter();\" class=\"fa fa-caret-down unrollMenu\" aria-hidden=\"true\"></i>\n  </div>\n  <div *ngIf=\"displayProjectPerformance\" class=\"borderSeparate\"></div>\n  <div *ngIf=\"displayProjectPerformance\" class=\"containerInfo\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Select report date:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\"[(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" (changeValue)=\"applyFilter()\" [displayTitle]=\"true\" [choose]=\"chooseUser\"\n                       [list]=\"project.listUsers\" [getEvent]=\"true\"></multiple-select>\n    </div>\n    <div class=\"displayValue\">\n      <div class=\"dailyUser\">\n        <div class=\"textDailyUser\">\n          DAUs\n        </div>\n        <div class=\"barAndValueDailyUser\">\n          <div class=\"barDailyUser\"></div>\n          <div class=\"valueDailyUser\">{{dailyUser}}</div>\n        </div>\n      </div>\n      <div class=\"monthlyUser\">\n        <div class=\"textMonthlyUser\">\n          MAUs\n        </div>\n        <div class=\"barAndValueMonthlyUser\">\n          <div class=\"barMonthlyUser\"></div>\n          <div class=\"valueMonthlyUser\">{{monthlyUser}}</div>\n        </div>\n      </div>\n      <div class=\"matchSpeed\">\n        <div class=\"textMatchSpeed\">\n          Avg. Match Speed\n        </div>\n        <div class=\"barAndValueMatchSpeed\">\n          <div class=\"barMatchSpeed\"></div>\n          <div class=\"valueMatchSpeed\">{{matchSpeed | number : '1.1-3'}}s</div>\n        </div>\n      </div>\n      <div class=\"accuracy\">\n        <div class=\"textAccuracy\" *ngIf=\"type === 'IDENTIFY'\">\n          Avg. Accuracy\n        </div>\n        <div class=\"textAccuracy\" *ngIf=\"type === 'VERIFY'\">\n          Percent of yes\n        </div>\n        <div class=\"barAndValueAccuracy\">\n          <div class=\"barAccuracy\"></div>\n          <div class=\"valueAccuracy\">{{accuracy | number : '1.0-2'}}%</div>\n        </div>\n      </div>\n      <div class=\"number\">\n        <div class=\"textNumber\" *ngIf=\"type === 'IDENTIFY'\">\n          Id's callback\n        </div>\n        <div class=\"textNumber\" *ngIf=\"type === 'VERIFY'\">\n          Verification's number\n        </div>\n        <div class=\"barAndValueNumber\">\n          <div class=\"barNumber\"></div>\n          <div class=\"valueNumber\">{{total}}</div>\n        </div>\n      </div>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartData\"\n              [labels]=\"lineChartLabels\"\n              [options]=\"lineChartOptions\"\n              [legend]=\"lineChartLegend\"\n              [chartType]=\"lineChartType\"></canvas>\n    </div>\n    <div *ngIf='displayChart' style=\"display: block;\">\n      <canvas baseChart width=\"400\" height=\"400\"\n              [datasets]=\"lineChartDataAccuracy\"\n              [labels]=\"lineChartLabelsAccuracy\"\n              [options]=\"lineChartOptionsAccuracy\"\n              [colors]=\"lineChartColorAccuracy\"\n              [legend]=\"lineChartLegendAccuracy\"\n              [chartType]=\"lineChartTypeAccuracy\"></canvas>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3181,7 +3473,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/table/table.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf='project' class=\"containerTable\">\n    <div class=\"filterData\">\n      <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n      <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n      <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n      <multiple-select *ngIf=\"project.name !== 'Global'\" [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n      <span class=\"textFilter\">Activity filter:</span>\n      <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n      <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n    </div>\n    <div class=\"table\">\n      <div class=\"header\">\n        <div class=\"titleColumn\">\n          Time\n        </div>\n        <div class=\"titleColumn\">\n          User\n        </div>\n        <div class=\"titleColumn\">\n          Activity\n        </div>\n        <div class=\"titleColumn\">\n          GPS\n        </div>\n        <div class=\"titleColumn\">\n          Match Speed\n        </div>\n        <div class=\"titleColumn\">\n          Version\n        </div>\n      </div>\n      <div class=\"listData\" (scroll)=\"loadNewValue($event)\">\n        <div *ngFor=\"let session of sessions; let odd = odd; let even = even\" class=\"rowData\" [ngClass]=\"{ odd: odd, even: even }\">\n          <div class=\"data\">{{session['Time']}}</div>\n          <div class=\"data\">{{session['User']}}</div>\n          <div class=\"data\">{{session['Activity']}}</div>\n          <div class=\"data\">{{session['GPS']}}</div>\n          <div class=\"data\">{{session['Match Speed']}}</div>\n          <div class=\"data\">{{session['Version']}}</div>\n        </div>\n      </div>\n  </div>\n  <div class=\"buttonDownload\">\n    <div class=\"button\" (click)=\"exportCSV()\"><i class=\"fa fa-download iconDownload\" aria-hidden=\"true\"></i>CSV</div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
+module.exports = "<div *ngIf='project' class=\"containerTable\">\n  <div class=\"filterData\">\n    <img src=\"../../assets/clock.png\" class=\"imgClock\"><span class=\"textFilter\">Time period:</span>\n    <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateStart\">\n    <input type=\"date\" class=\"dateInput\" (change)=\"changeDate()\" [(ngModel)]=\"dateEnd\">\n    <span *ngIf=\"project.name !== 'Global'\" class=\"textFilter\">User filter:</span>\n    <multiple-select *ngIf=\"project.name !== 'Global'\" [listChecked]=\"chooseUser\" [list]=\"project.listUsers\"></multiple-select>\n    <span class=\"textFilter\">Activity filter:</span>\n    <multiple-select [listChecked]=\"chooseActivity\" [list]=\"listActivity\"></multiple-select>\n    <button (click)=\"applyFilter()\" class=\"buttonFilter\">Submit</button>\n  </div>\n  <div class=\"table\">\n    <div class=\"header\">\n      <div class=\"titleColumn\">\n        Time\n      </div>\n      <div class=\"titleColumn\">\n        User\n      </div>\n      <div class=\"titleColumn\">\n        Activity\n      </div>\n      <div class=\"titleColumn\">\n        GPS\n      </div>\n      <div class=\"titleColumn\">\n        Match Speed\n      </div>\n      <div class=\"titleColumn\">\n        Version\n      </div>\n    </div>\n    <div class=\"listData\" (scroll)=\"loadNewValue($event)\">\n      <div *ngFor=\"let session of sessions; let odd = odd; let even = even\" class=\"rowData\" [ngClass]=\"{ odd: odd, even: even }\">\n        <div class=\"data\">{{session['Time']}}</div>\n        <div class=\"data\">{{session['User']}}</div>\n        <div class=\"data\">{{session['Activity']}}</div>\n        <div class=\"data\">{{session['GPS']}}</div>\n        <div class=\"data\">{{session['Match Speed']}}</div>\n        <div class=\"data\">{{session['Version']}}</div>\n      </div>\n    </div>\n  </div>\n  <div class=\"buttonDownload\">\n    <div class=\"button\" (click)=\"exportCSV()\"><i class=\"fa fa-download iconDownload\" aria-hidden=\"true\"></i>CSV</div>\n  </div>\n</div>\n<div *ngIf='loadVal'>\n  <ngl-spinner size=\"large\" type=\"brand\" container=\"true\"></ngl-spinner>\n</div>\n"
 
 /***/ }),
 
@@ -3342,7 +3634,7 @@ var TableComponent = (function () {
             showLabels: true,
             useBom: true
         };
-        new __WEBPACK_IMPORTED_MODULE_2_angular2_csv_Angular2_csv__["Angular2Csv"](this.sessions, 'test', options);
+        new __WEBPACK_IMPORTED_MODULE_2_angular2_csv_Angular2_csv__["Angular2Csv"](this.sessions, 'ListSession', options);
     };
     return TableComponent;
 }());
